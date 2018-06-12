@@ -38,7 +38,7 @@ users.send();
 
 
 const succes = (event) => {
-    const data = (event.target)
+    const data = JSON.parse(event.target)
     console.log(data);
 }
 const error = () => {
