@@ -2,18 +2,18 @@
 
 /*.............. usuarios y buscar ..................*/
 const l = document.getElementById('listar');
-const l2 = document.getElementById('submit-btn');
-const r = document.getElementById('respuesta');
-const b = document.getElementById('search-keyword');
+//const l2 = document.getElementById('submit-btn');
+const r = document.getElementById('listStudent');
+//const b = document.getElementById('search-keyword');
 let searchForText;
 
 /*boton buscar*/
-l2.addEventListener('click',(f) => {
-    f.preventDefault();
-    searchForText=b.value;
-     getUser();
- });
- r
+//l2.addEventListener('click',(f) => {
+  //  f.preventDefault();
+    //searchForText=b.value;
+    // getUser();
+ //});
+ 
 /*boton estudiante*/
 
 l.addEventListener('click',(e) => {
@@ -21,9 +21,14 @@ l.addEventListener('click',(e) => {
     getUser();
 });
 
+getPerformance = () => {
+    let performance = new XMLHttpRequest();
+    users.open('GET', '../data/cohorts/lim-2018-03-pre-core-pw/progress.json');
+}
+
 getUser = () => {
     let users = new XMLHttpRequest();
-    users.open('GET', '../data/cohorts/lim-2018-03-pre-core-pw/users.json');
+        users.open('GET', '../data/cohorts/lim-2018-03-pre-core-pw/users.json');
     users.onload = succes;
     users.onerror = error;
     users.send();

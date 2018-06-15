@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Data Dashboard</title>
+  <!--  <title>Data Dashboard</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -15,8 +15,79 @@
      <ul id="respuesta">
      </ul>
   </div>
+  -->
+  <!-- -->
+
+   <title>Data Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  </head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <body>
+    <header>
+<img class= "centrado" src="../src/img/Laboratoria_RGB_logo-01.png" height="80px">
+<nav>
+<input type="search" placeholder="buscar..." size="50px"/>
+<button type="submit">
+  <i class="fas fa-search"></i></button>
+</nav>
+<nav1><i class="fas fa-power-off"></i>
+Usuario</nav1>
+    </header>
+  <section>
+ <main class="contenedor-menu">
+ <a href="#" class="btn-menu">MENU<i class="icono fas fa-bars"></i></a>
+     <ul class="menu">
+       <li><a href="#"><i class="fas fa-home"></i>  MENU</a>
+       <li><a href="#"><i class="icono izquierda fas fa-map-marker-alt"></i>  SEDE<i class="icono derecha fas fa-chevron-down"></i></a>
+           <ul>
+             <li><a href="#">Peru-Lima</a></li>
+             <li><a href="#">Santiago de chile</a></li>
+             <li><a href="#">Guadarajara</a></li>
+             <li><a href="#">Mexico</a></li>
+             <li><a href="#">Sao Paulo</a></li>
+           </ul>
+
+       <li><a href="#"><i class="icono izquierda far fa-star"></i>COHORTS<i class="icono derecha fas fa-chevron-down"></i>
+          </a></li>
+          <ul>
+         <li><a href="#">lim-2018-1 </a></li>
+         <li><a href="#">lim-2017-2</a></li>
+         <li><a href="#">lim-2017-1</a></li>
+         </ul>
+
+       <li><a href="#"><i class="icono izquierda far fa-address-book"></i> CURSOS<i class="icono derecha fas fa-chevron-down"></i>
+           </a></li>
+           <ul>
+          <li><a href="#">Html</a></li>
+          <li><a href="#">Css</a></li>
+           <li><a href="#">javascript</a></li>
+           </ul>
+
+     
+         <li><a href="#"><i class="icono izquierda far fa-address-book"></i> UNIDAD <i class="icono derecha fas fa-chevron-down"></i>
  
-  
+         </a></li>
+         <ul>
+         <li><a href="#">unidad 1</a></li>
+         <li><a href="#">unidad 2</a></li>
+         </ul>
+
+         <li id="listar"><a href="#"><i class="icono izquierda far fa-address-book"></i> ESTUDIANTES <i class="icono derecha fas fa-chevron-down"></i>
+         </ul>
+        
+        <ul id="listStudent"></ul>
+
+        <ul id="listPerformance"></ul>
+        
+    </main>
+      </section>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+         <script src="data.js"></script>
+        <script src="main.js"></script>
+  </body>
+</html>
+
    <script src="data.js"></script>
   <script src="main.js"></script>
   </body>
