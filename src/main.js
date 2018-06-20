@@ -5,7 +5,6 @@
 const listStudents = document.getElementById('list');
 const btnStudents = document.getElementById('btnStudent');
 
-let cohorts = [];
 
 btnStudents.addEventListener ('click', (e) => {
 e.preventDefault();
@@ -39,8 +38,9 @@ const listCohorts = document.getElementById('listCohorts');
 btnCohorts.addEventListener ('click', (e) => {
     e.preventDefault();
     getListCohorts();
-    createCohortsTable();
+    //createCohortsTable();
  });
+
 getListCohorts = () => {
         let cohorts = new XMLHttpRequest();
         cohorts.open('GET', '../data/cohorts.json');
@@ -48,9 +48,15 @@ getListCohorts = () => {
         cohorts.onerror = error;
         cohorts.send();
       }
-const addCohorts = () => {
-   cohorts =JSON.parse(event.target.responseText);
-   console.log(cohorts);
+
+const addCohorts = (event) => {
+    const listCohort =JSON.parse(event.target.responseText);
+    listCohort.forEach(cohor =>{
+        let li = document.createElement('listCohorts');
+        li.innerHTML = cohor.id;
+        li.value = cohor.id;
+        listCohorts.appendChild(li);
+    })
      /*for(let i=0;i<usuarios.length;i++)
       {
              let li = document.createElement('li');
@@ -70,18 +76,9 @@ const createCohortsTable = () => {
         });
 
         let tablaCohorts = 
-        "<table class='table'>"+
-        "<thead class='thead-dark'>"+
-        "    <tr>"+
-        "        <th scope='col'>#</th>"+
-        "        <th scope='col'>Cohort Name</th>"+
-        "        <th scope='col'>User Count</th>"+
-        "    </tr>"+
-        "</thead>"+
-        "<tbody>"+
+       
         filas
-        "</tbody>"+
-        "</table>";
+        
     
         divCohorts.innerHTML = tablaCohorts;
     }
