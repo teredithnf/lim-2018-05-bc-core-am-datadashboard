@@ -39,7 +39,6 @@ const listCohorts = document.getElementById('listCohorts');
 btnCohorts.addEventListener ('click', (e) => {
     e.preventDefault();
     getListCohorts();
-    createCohortsTable();
  });
 getListCohorts = () => {
         let cohorts = new XMLHttpRequest();
@@ -51,6 +50,7 @@ getListCohorts = () => {
 const addCohorts = () => {
    cohorts =JSON.parse(event.target.responseText);
    console.log(cohorts);
+   createCohortsTable();
      /*for(let i=0;i<usuarios.length;i++)
       {
              let li = document.createElement('li');
@@ -66,7 +66,7 @@ const createCohortsTable = () => {
     if (divCohorts){
         let filas = "";
         cohorts.forEach((cohort, index) => {
-            filas = filas + "<tr><th scope='row'>"+index+"</th><td>"+cohort.id+"</td><td>"+cohort.usersCount+"</td></tr>";
+            filas = filas + "<tr onClick='showUsersByCohorts(\""+cohort.id+"\")' ><th scope='row'>"+index+"</th><td>"+cohort.id+"</td><td>"+cohort.usersCount+"</td></tr>";
         });
 
         let tablaCohorts = 
@@ -86,4 +86,8 @@ const createCohortsTable = () => {
         divCohorts.innerHTML = tablaCohorts;
     }
 
+}
+
+const showUsersByCohorts = (cohortName) => {
+    window.open('/src/usersCohort.html?cohortName='+cohortName,'_self');
 }
