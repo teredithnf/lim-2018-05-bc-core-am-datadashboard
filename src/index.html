@@ -16,7 +16,7 @@
       <input type="search" placeholder="buscar..." size="50px" />
       <button type="submit"><i class="fas fa-search"></i></button>
     </form>
-    <nav><i class="fas fa-power-off"></i>Usuario</nav>
+    <div class="perfil"><center><i class="fas fa-power-off"></i> <p>Usuario</p></center></div>
   </header>
   <section>
     <main class="contenedor-menu">
@@ -24,6 +24,7 @@
       <!-- Menu para dispositivo mobil-->
       <ul class="menu">
         <li><a href="#"> <i class="fas fa-home"></i> MENU</a></li>
+        <!--  **********************-->
         <li><a href="#"><i class="icono izquierda fas fa-map-marker-alt"></i> SEDE<i class="icono derecha fas fa-chevron-down"></i></a>
           <ul>
             <li><a href="#">Peru-Lima</a></li>
@@ -39,8 +40,13 @@
         <li id="btnStudent"> <a href="#"><i class="icono izquierda far fa-address-book"></i> ESTUDIANTES<i class="icono derecha fas fa-chevron-down"></i></a></li>
       </ul>
     </main>
+     <!-- Tabla donde se lista estudiantes-->
+     <div class ="Tabla">
+      <ul id="columnStudents"> <p>Nombre y Apellidos </p> </ul>
+      <ul id="list"></ul>
+    </div>
   </section>
-  <ul id="list"></ul>
+  <footer> <img src="../src/img/Laboratoria_RGB_logo-01.png" height="80px"></footer>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="data.js"></script>
   <script src="main.js"></script>
