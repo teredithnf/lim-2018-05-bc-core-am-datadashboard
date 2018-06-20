@@ -30,14 +30,16 @@ const addStudents = (event) => {
 }
 const error = () =>  console.log ('Se ha presentado un error');
 
-/*Funcion para llamar cohorts */
+/*..........................Funcion para llamar cohorts...................*/
 const btnCohorts = document.getElementById('btnCohorts');
 const listCohorts = document.getElementById('listCohorts');
 
 btnCohorts.addEventListener ('click', (e) => {
     e.preventDefault();
     getListCohorts();
+    //createCohortsTable();
  });
+
 getListCohorts = () => {
         let cohorts = new XMLHttpRequest();
         cohorts.open('GET', '../data/cohorts.json');
@@ -45,15 +47,13 @@ getListCohorts = () => {
         cohorts.onerror = error;
         cohorts.send();
       }
-const addCohorts = () => {
-   
-   const cohorts =JSON.parse(event.target.responseText);
-   console.log(cohorts);
-     /*for(let i=0;i<usuarios.length;i++)
-      {
-             let li = document.createElement('li');
-             li.className = 'articleClass';
-             li.innerText = usuarios[i].name;
-             listStudents.appendChild(li);
-      }   */ 
-}
+
+const addCohorts = (event) => {
+    const listCohort =JSON.parse(event.target.responseText);
+    listCohort.forEach(cohor =>{
+        let li = document.createElement('li');
+        li.innerHTML = cohor.id;
+        li.value = cohor.id;
+        listCohorts.appendChild(li);
+    })
+  }
