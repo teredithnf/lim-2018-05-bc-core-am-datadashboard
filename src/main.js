@@ -1,47 +1,59 @@
-/*Mostrar y manipular datos en pantalla
-let llamarUsuarios = () => {
-    let users = new XMLHttpRequest();
-    users.open('GET', 'http://127.0.0.1:8887/cohorts/lim-2018-03-pre-core-pw/users.json', true);
-    users.onload = (addUsers) => {
-        //document.getElementById("myDiv").innerHTML = users.responseText;
-        console.log('success: '+ users.responseText);
-    };
-    users.onerror = (error) => {
-        document.getElementById("myDiv").innerHTML = 'Ocurrió un error al obtener la data';
-        console.log( 'An error occurred', error );
-    };
-    users.send();
-}
 
-addUsers = () => {
-    const data = JSON.parse(users.responseText);
-    
-}*/
-const l = document.getElementById('listar');
+//mostrar datos (manipulacion del XHR)
 
+/*.............. Funcion para llamar lista de Usuarios..................*/
+const listStudents = document.getElementById('list');
+const btnStudents = document.getElementById('btnStudent');
 
-l.addEventListener('click',(e) => {
-    e.preventDefault();
-   // responseConteiner.innerHTML = '';
-    getUser();
-
+btnStudents.addEventListener ('click', (e) => {
+e.preventDefault();
+getListStudent();
 });
 
-
-getUser = () => {
-let users = new XMLHttpRequest();
-users.open('GET', '../data/cohorts/lim-2018-03-pre-core-pw/users.json');
-users.onload = succes;
-users.onerror = error;
-users.send();
+getListStudent = () => {
+    let students = new XMLHttpRequest();
+    students.open('GET', '../data/cohorts/lim-2018-03-pre-core-pw/users.json');
+    students.onload = addStudents;
+    students.onerror = error;
+    students.send();
+  }
+   
+const addStudents = (event) => {
+   const usuarios =JSON.parse(event.target.responseText);
+   for(let i=0;i<usuarios.length;i++)
+     {
+            let li = document.createElement('li');
+            li.className = 'articleClass';
+            li.innerText = usuarios[i].name;
+            listStudents.appendChild(li);
+     }  
 }
+const error = () =>  console.log ('Se ha presentado un error');
 
+/*Funcion para llamar cohorts */
+const btnCohorts = document.getElementById('btnCohorts');
+const listCohorts = document.getElementById('listCohorts');
 
-const succes = (event) => {
-    const data = JSON.parse(event.target)
-    console.log(data);
+btnCohorts.addEventListener ('click', (e) => {
+    e.preventDefault();
+    getListCohorts();
+ });
+getListCohorts = () => {
+        let cohorts = new XMLHttpRequest();
+        cohorts.open('GET', '../data/cohorts.json');
+        cohorts.onload = addCohorts; 
+        cohorts.onerror = error;
+        cohorts.send();
+      }
+const addCohorts = () => {
+   
+   const cohorts =JSON.parse(event.target.responseText);
+   console.log(cohorts);
+     /*for(let i=0;i<usuarios.length;i++)
+      {
+             let li = document.createElement('li');
+             li.className = 'articleClass';
+             li.innerText = usuarios[i].name;
+             listStudents.appendChild(li);
+      }   */ 
 }
-const error = () => {
-    console.log( 'An error occurred' );
-}
-
