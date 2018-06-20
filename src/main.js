@@ -57,7 +57,7 @@ getListCohorts = () => {
             let li = document.createElement('li');
             li.className = 'cohortClass';
             li.innerText = listCohort[i].id;
-            listStudents.appendChild(li);
+            listCohorts.appendChild(li);
      }  
         
         }
