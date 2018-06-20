@@ -37,8 +37,7 @@ const listCohorts = document.getElementById('listCohorts');
 btnCohorts.addEventListener ('click', (e) => {
     e.preventDefault();
     getListCohorts();
-    //createCohortsTable();
- });
+  });
 
 getListCohorts = () => {
         let cohorts = new XMLHttpRequest();
