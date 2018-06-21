@@ -5,7 +5,6 @@
 const listStudents = document.getElementById('list');
 const btnStudents = document.getElementById('btnStudent');
 
-let cohorts = [];
 
 btnStudents.addEventListener ('click', (e) => {
 e.preventDefault();
@@ -30,6 +29,7 @@ const addStudents = (event) => {
             listStudents.appendChild(li);
      }  
 }
+
 const error = () =>  console.log ('Se ha presentado un error');
 
 /*Funcion para llamar cohorts */
@@ -40,6 +40,7 @@ btnCohorts.addEventListener ('click', (e) => {
     e.preventDefault();
     getListCohorts();
  });
+
 getListCohorts = () => {
         let cohorts = new XMLHttpRequest();
         cohorts.open('GET', '../data/cohorts.json');
@@ -47,22 +48,23 @@ getListCohorts = () => {
         cohorts.onerror = error;
         cohorts.send();
       }
-const addCohorts = () => {
-   cohorts =JSON.parse(event.target.responseText);
-   console.log(cohorts);
-   createCohortsTable();
-     /*for(let i=0;i<usuarios.length;i++)
-      {
-             let li = document.createElement('li');
-             li.className = 'articleClass';
-             li.innerText = usuarios[i].name;
-             listStudents.appendChild(li);
-      }   */ 
-}
 
-const createCohortsTable = () => {
+      const addCohorts = (event) => {
+        const listCohort =JSON.parse(event.target.responseText);
+        for(let i=0;i<listCohort.length;i++)
+     {
+            let li = document.createElement('li');
+            li.className = 'cohortClass';
+            li.innerText = listCohort[i].id;
+            listCohorts.appendChild(li);
+     }  
+        
+        }
 
-    let divCohorts = document.getElementById("divCohorts");
+        
+
+
+    /*let divCohorts = document.getElementById("divCohorts");
     if (divCohorts){
         let filas = "";
         cohorts.forEach((cohort, index) => {
@@ -91,3 +93,4 @@ const createCohortsTable = () => {
 const showUsersByCohorts = (cohortName) => {
     window.open('/src/usersCohort.html?cohortName='+cohortName,'_self');
 }
+*/
