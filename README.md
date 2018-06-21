@@ -559,3 +559,41 @@ del repo de tu cohort, tus _coaches_ te compartirán un _link_ a un repo. La otr
 * [Fetch API en MDN](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
 * [json.org](https://json.org/json-es.html)
 * [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en)
+----------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------
+------------------------------------------ DAHSBOARD------------------------------------------------------
+----------------------------------------------------------------------------------------------------------
+Para realizar el siguiente proyecto, se realizo un cuestionario para realizar una entrevista al usuario final para
+tener los requerimientos, luego realizar los bocetos (de baja y alta fidelidad), y finalmente creación de la web.
+
+1.- Quiénes son los principales usuarios de producto?
+    Son los Training Manager, para este proyecto nos asignaron a : Alejandra
+
+2.- Cuáles son los objetivos de estos usuarios en relación con el producto?
+    - Tener una tendencia general, por turnos, de un cohort el progreso de completitud de ejercicios autocorregidos,lecturas,Quizes.
+    - Realizar comparaciones de tendencia entre turnos de un mismo cohort.
+    - Tener una web facil de utilizar y adaptable(poder utilizarlo desde cualquier equipo).
+    - Tener un diseño mantenga la marca de Laboratoria.
+
+3.- Cuáles son los datos más relevantes que quieren ver en la interfaz y por qué. Cómo los descubriste?
+    Los datos mas relevantes para la training manager que desea visualizar es una estadistica general del progreso de completitud de ejercicios autorregidos por cohort y realizar comparaciones entre el turno de la mañana y la tarde.
+    ***
+
+4.- Cuándo revisan normalmente estos datos los usuarios.
+    ***
+5.- Cómo crees que el producto les está resolviendo sus problemas.
+    ***
+6.- Cómo fue tu proceso de diseño.
+     Para el proceso de diseño primero se realizo un cuestionario para entender los requerimientos del usuario, luego procedimos a realizar un boceto de baja fidelidad, nos hacercamos hacia la TM para que nos de un feedback de nuestro boceto y creamos un boceto didactico para tener una idea mas clara.Con el ultimo boceto comenzamos a construir el boceto de alta fidelidad.
+
+A continuación presentamos los materiales utilizados para realizar la página:
+
+CUESTIONARIO
+
+1.- Que información quisieras visualizar el Dashboard?
+2.- Podrias brindarnos una jerarquia entre todas las evaluciones?
+3.- Hasta el momento como verificas el desempeño de las estuadiantes de Laboratoria?
+4.- Que proceso consideras que te genera perdida de tiempo?
+5.- Te gustaría ver graficos?
+6.- Es necesario poder exportar los datos o estadisticas en un excel?
+    
