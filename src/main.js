@@ -61,15 +61,17 @@ getListCohorts = () => {
      }  
         
         }
-const listAverageCourses = document.getElementById('');
+
+const listdataProgress = document.getElementById('');
 
 
-getListAverageCourses = (userid) => {
-    let averageCourses = new XMLHttpRequest();
-    averageCourses.open('Get','')
-    averageCourses.onload = addAverageCourses:
-    averageCourses.onerror = error;
-    averageCourses.send();
+getDataProgress = () => {
+    let dataProgress = new XMLHttpRequest();
+    dataProgress.open('Get','http://127.0.0.1:8887/data/cohorts/lim-2018-03-pre-core-pw/progress.json');
+    dataProgress.onload = addDataProgress;
+    dataProgress.onerror = error;
+    dataProgress.send();
 }
 
-const addAverageCourses = 
+
+
