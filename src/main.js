@@ -56,3 +56,8 @@ const addCohorts = (event) => {
         listCohorts.appendChild(li);
     })
   }
+/*..................Funcion para filtrar los usuarios por cohorts............*/
+
+const getStudentsByCohort = () => {
+let array 
+}
