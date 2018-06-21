@@ -17,6 +17,14 @@ getListStudent = () => {
     students.onerror = error;
     students.send();
   }
+
+getJSON(cohortsUrl, (cohorts) => {
+  getJSON(usersUrl, (users) => {
+    getJSON(progressUrl, (progress) => {
+      console.log(users, cohorts, progress)
+    })
+  })
+})
    
 const addStudents = (event) => {
    const usuarios =JSON.parse(event.target.responseText);
@@ -58,6 +66,6 @@ const addCohorts = (event) => {
   }
 /*..................Funcion para filtrar los usuarios por cohorts............*/
 
-const getStudentsByCohort = () => {
-let array 
+const getStudentsByCohort = (nameCohort) => {
+let arrayByCohort
 }
