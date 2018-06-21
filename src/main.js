@@ -61,21 +61,15 @@ getListCohorts = () => {
      }  
         
         }
-
-/*const addCohorts = (event) => {
-    const listCohort =JSON.parse(event.target.responseText);
-    listCohort.forEach(cohor =>{
-        let li = document.createElement('listCohorts');
-        li.innerHTML = cohor.id;
-        li.value = cohor.id;
-        listCohorts.appendChild(li);
-    })*/
-     /*
-      {
-             let li = document.createElement('li');
-             li.className = 'articleClass';
-             li.innerText = usuarios[i].name;
-             listStudents.appendChild(li);
-      }   */ 
+const listAverageCourses = document.getElementById('');
 
 
+getListAverageCourses = (userid) => {
+    let averageCourses = new XMLHttpRequest();
+    averageCourses.open('Get','')
+    averageCourses.onload = addAverageCourses:
+    averageCourses.onerror = error;
+    averageCourses.send();
+}
+
+const addAverageCourses = 
