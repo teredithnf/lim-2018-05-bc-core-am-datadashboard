@@ -17,7 +17,7 @@ getListStudent = () => {
     students.onerror = error;
     students.send();
   }
-
+/*
 getJSON(cohortsUrl, (cohorts) => {
   getJSON(usersUrl, (users) => {
     getJSON(progressUrl, (progress) => {
@@ -25,7 +25,7 @@ getJSON(cohortsUrl, (cohorts) => {
     })
   })
 })
-   
+ */  
 const addStudents = (event) => {
    const usuarios =JSON.parse(event.target.responseText);
    for(let i=0;i<usuarios.length;i++)
