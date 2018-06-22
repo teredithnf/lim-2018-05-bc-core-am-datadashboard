@@ -594,8 +594,53 @@ A continuación presentamos los materiales utilizados para realizar la página:
 
       1.- Que información quisieras visualizar el Dashboard?
       2.- Podrias brindarnos una jerarquia entre todas las evaluciones?
-      3.- Hasta el momento como verificas el desempeño de las estuadiantes de Laboratoria?
+      3.- Hasta el momento como verificas el desempeño de las estuadiantes de       Laboratoria?
       4.- Que proceso consideras que te genera perdida de tiempo?
       5.- Te gustaría ver graficos?
       6.- Es necesario poder exportar los datos o estadisticas en un excel?
-    
+
+2.- BOCETO DE BAJA CALIDAD
+
+- Interfaz de Login de Usuario
+
+![Login Usuario](1-LoginUsuario.png)
+
+- Se realiza  click boton de sedes, para  filtrar las sedes
+
+![Boton de Sedes](2-btnSedes.png)
+
+![Filtrar Sedes](3-FiltrarSede.png)
+
+- Se realiza click en boton Cohort, para filtrar los cohorts
+
+![Boton de Cohort](4-btnCohort.png)
+
+![Filtrar Cohort](5-FiltrarCohort.png)
+
+- Se muestra lista de estudiantes con el porcentaje de completitud de Ejercicios , Quizes y Lecturas
+
+![Tabla de Usuario y Gráficas](6-TablaUsuarioGraficaGenera.png)
+
+- Se realiza click en buscar para filtrar el nombre de un estudiante y permite seleccionar a uno.
+
+![Boton Buscar Usuario](7-btnBuscarUsuario.png)
+
+![Seleccionar Usuario](8-SeleccionarUsuario.png)
+
+- Se visualiza el detalle de completitud de cada curso.
+
+![Detalle de Todos Los Cursos del Usuario](9-DetalleTodosCursosUsuario.png)
+
+3.-  PROTOTIPO DE ALTA CALIDAD
+
+- Login de Usuario
+
+![Login Usuario](1-LoginUsuario.PNG)
+
+- Menu Principal y Tabla de Estudiantes
+
+![Menu Principal Y tabla de Estudiantes](2-MenuPrincipalyTablaEstudiantes.PNG)
+
+- Detalle de progreso por estudiante
+
+![Detalle de Progreso Por Estudiante](3-DetallePorEstudiante.PNG)
