@@ -39,7 +39,7 @@ window.computeUsersStats = (users, progress, courses) => {
             let percent = courses.reduce((suma, course) => {
                 let userProgressCourses = userProgress[course];
                 if(userProgressCourses){
-                    return suma +userProgressCourses.percent;
+                    return suma + userProgressCourses.percent;
                 }
             },0);
 
@@ -52,6 +52,7 @@ window.computeUsersStats = (users, progress, courses) => {
         return user;
      });
 
+     console.log('userWithStats: ',userWithStats);
     return userWithStats;
 }
 
