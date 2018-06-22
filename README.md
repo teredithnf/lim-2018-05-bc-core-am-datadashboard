@@ -644,3 +644,11 @@ A continuación presentamos los materiales utilizados para realizar la página:
 - Detalle de progreso por estudiante
 
 ![Detalle de Progreso Por Estudiante](3-DetallePorEstudiante.PNG)
+
+SPRINT # 1
+
+![Sprint 1](Sprint-1.jpg)
+
+SPRINT # 2
+
+![Sprint 2](Sprint-2.jng)
