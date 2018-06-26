@@ -49,24 +49,16 @@ getListCohorts = () => {
         cohorts.send();
       }
 
-      const addCohorts = (event) => {
-        const listCohort =JSON.parse(event.target.responseText);
-        for(let i=0;i<listCohort.length;i++)
-     {
-            let li = document.createElement('li');
-            li.className = 'cohortClass';
-            li.innerText = listCohort[i].id;
-            listCohorts.appendChild(li);
-     }  
-        
-        }
+const addCohorts = (event) => {
+    const listCohorts = JSON.parse(event.target.responseText);
+    setTableCohorts(listCohorts);
+}
 
 const listDataProgress = document.getElementById('showProgress');
 const btnDataProgress = document.getElementById('btnProgress');
 
 btnDataProgress.addEventListener ('click', (e) => {
   e.preventDefault();
-  ();
   });
 
 getDataProgress = () => {
@@ -98,3 +90,33 @@ generation.addEventListener('change',function(e){
   }
 
 });*/
+        
+let setTableCohorts = (listCohorts) => {
+    let divCohorts = document.getElementById("divCohorts");
+    if (divCohorts){
+        let filas = "";
+        listCohorts.forEach((cohort, index) => {
+            filas = filas + "<tr onClick='showUsersByCohorts(\""+cohort.id+"\")' ><th scope='row'>"+index+"</th><td>"+cohort.id+"</td><td>"+cohort.usersCount+"</td></tr>";
+        });
+
+        let tablaCohorts = 
+        "<table class='table'>"+
+        "<thead class='thead-dark'>"+
+        "    <tr>"+
+        "        <th scope='col'>#</th>"+
+        "        <th scope='col'>Cohort Name</th>"+
+        "        <th scope='col'>User Count</th>"+
+        "    </tr>"+
+        "</thead>"+
+        "<tbody>"+
+        filas
+        "</tbody>"+
+        "</table>";
+    
+        divCohorts.innerHTML = tablaCohorts;
+    }
+}
+
+const showUsersByCohorts = (cohortName) => {
+    window.open('/src/usersCohort.html?cohortName='+cohortName,'_self');
+}

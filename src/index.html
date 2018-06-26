@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
    crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
   <header>
@@ -23,7 +24,7 @@
       <a href="#" class="btn-menu">MENU <i class="icono fas fa-bars"></i></a>
       <!-- Menu para dispositivo mobil-->
       <ul class="menu">
-        <li><a href="#"> <i class="fas fa-home"></i> MENU</a></li>
+        <!--<li><a href="#"> <i class="fas fa-home"></i> MENU</a></li>
         <li><a href="#"><i class="icono izquierda fas fa-map-marker-alt"></i> SEDE<i class="icono derecha fas fa-chevron-down"></i></a>
           <ul>
             <li><a href="#">Peru-Lima</a></li>
@@ -32,13 +33,21 @@
             <li><a href="#">Mexico</a></li>
             <li><a href="#">Sao Paulo</a></li>
           </ul>
+        </li>-->
+        <li id="btnCohorts"> 
+          <a href="#"><i class="icono izquierda far fa-star"></i>COHORTS<i class="icono derecha fas fa-chevron-down"></i>
+          </a>
+          <!-- ul id="listCohorts">    </ul -->
         </li>
-        <li id="btnCohorts"> <a href="#"><i class="icono izquierda far fa-star"></i>COHORTS<i class="icono derecha fas fa-chevron-down"></i></a>
-          <ul id="listCohorts">    </ul>
+        <li id="btnStudent">
+          <a href="#"><i class="icono izquierda far fa-address-book"></i> ESTUDIANTES<i class="icono derecha fas fa-chevron-down"></i>
+          </a>
         </li>
-        <li id="btnStudent"> <a href="#"><i class="icono izquierda far fa-address-book"></i> ESTUDIANTES<i class="icono derecha fas fa-chevron-down"></i></a></li>
       </ul>
     </main>
+    <aside class="contenedor-aside">
+        <div id="divCohorts"></div>
+    </aside>
   </section>
   <ul id="list"></ul>
   <input type="button" id="btnProgress" value="mostrar % de curso">
