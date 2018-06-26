@@ -1,54 +1,128 @@
-//obtener data y funciones que obtienen y manipulan los datosv
-
-/*.............. usuarios y buscar ..................*/
-const l = document.getElementById('listar');
-const l2 = document.getElementById('submit-btn');
-const r = document.getElementById('respuesta');
-const b = document.getElementById('search-keyword');
-let searchForText;
-
-/*boton buscar*/
-l2.addEventListener('click',(f) => {
-    f.preventDefault();
-    searchForText=b.value;
-     getUser();
- });
- r
-/*boton estudiante*/
-
-l.addEventListener('click',(e) => {
-   e.preventDefault();
-    getUser();
-});
-
-getUser = () => {
-    let users = new XMLHttpRequest();
-    users.open('GET', '../data/cohorts/lim-2018-03-pre-core-pw/users.json');
-    users.onload = succes;
-    users.onerror = error;
-    users.send();
-}
-
-const succes = (event) => {
-   const usuarios =JSON.parse(event.target.responseText);
-   for(let i=0;i<usuarios.length;i++)
-     {
-    let li = document.createElement('li');
-    li.className = 'articleClass';
-    li.innerText = usuarios[i].name;
-    r.appendChild(li);
-     }  
-    }
-
-const error = () => {
-   console.log( 'An error occurred' );
-}
-/*....................................................*/
-
+//obtener data y *funciones* que obtienen y manipulan los datos
 
 // Funciones Solicitadas
 window.computeUsersStats = (users, progress, courses) => {
+       // crear objeto stats con valores por default
+   /* let stats = {
+            percent: 0,
+            exercises: {
+                total: 0,
+                completed: 0,
+                percent: 0
+            },
+            reads: {
+                total: 0,
+                completed: 0,
+                percent: 0
+            },
     
+            quizzes: {
+                total: 0,
+                completed: 0,
+                percent: 0, 
+                scoreSum: 0,
+                scoreAverage: 0
+            }
+        }
+    
+        //recorrer el array de users y a cada uno agregarle el atributo stats
+        let userWithStats= users.map(function(user){ 
+            user.stats = stats;
+    
+            //obtener el progreso del usuario desde el array progress
+            let userProgress = progress[user.id];
+    
+            if(userProgress){
+    
+                // actualizar el objeto stats con los datos del progreso
+                let percent = courses.reduce((suma, course) => {
+                    let userProgressCourses = userProgress[course];
+                    if(userProgressCourses){
+                        return suma = userProgressCourses.percent;
+                    }
+                },0);
+    
+                user.stats.percent = percent;
+    
+                //actualizar exercises, reads y quizzes
+    
+            }*/
+    
+            return user;
+         });
+    
+        return userWithStats;
+     }
+    
+    // crear objeto stats con valores por default
+    let stats = {
+        percent: 0,
+        exercises: {
+            total: 0,
+            completed: 0,
+            percent: 0
+        },
+        reads: {
+            total: 0,
+            completed: 0,
+            percent: 0
+        },
+
+        quizzes: {
+            total: 0,
+            completed: 0,
+            percent: 0, 
+            scoreSum: 0,
+            scoreAverage: 0
+        }
+    }
+
+    //recorrer el array de users y a cada uno agregarle el atributo stats
+    let userWithStats= users.map(function(user){ 
+        user.stats = {};
+
+        //obtener el progreso del usuario desde el array progress
+        let userProgress = progress[user.id];
+
+        if(userProgress){
+
+            // actualizar el objeto stats con los datos del progreso
+            const sumaPercent = courses.reduce((suma, course) => {
+                let userProgressCourses = userProgress[course];
+                if(userProgressCourses){
+                    return suma + userProgressCourses.percent;
+                }
+            },0);
+
+            user.stats.percent = sumaPercent/courses.length;
+
+            //actualizar exercises, reads y quizzes
+
+            const sumaPercent = courses.reduce((suma, course) => {
+                const userProgressCourses = userProgress[course];
+                if(userProgressCourses){
+                    //return suma + userProgressCourses.percent;
+                    const courseUnits = userProgressCourses.units;
+                    if(courseUnits){
+
+                        const courseUnitPart = courseUnits.parts;
+
+                    }
+                }
+            },0);
+
+            courses.filter((course)=>{
+
+            }, )
+
+
+        }
+
+        return user;
+     });
+
+     console.log('userWithStats: ',userWithStats);
+    return userWithStats;
 }
 
 window.sortUsers = (users, orderBy, orderDirection ) => {
