@@ -1,14 +1,9 @@
 
+let getCohortName = () => {
+    let KeyValueCohort = location.search.substring(1,location.search.length).split('=');
+    return KeyValueCohort[1];
+}
 
-let getRequests = () => {
-    var s1 = location.search.substring(1, location.search.length).split('&'),
-        r = {}, s2, i;
-    for (i = 0; i < s1.length; i += 1) {
-        s2 = s1[i].split('=');
-        r[decodeURIComponent(s2[0]).toLowerCase()] = decodeURIComponent(s2[1]);
-    }
-    return r;
-};
 
 let getUserList = () => {
     let students = new XMLHttpRequest();
@@ -23,21 +18,21 @@ let userSuccess = (event) => {
     console.log(usuarios);
     setTableUsersByCohort();
 }
+
 let userError = () =>  console.log ('Se ha presentado un error');
 
 let setTitulo = () => {
-    const cohortName = QueryString["cohortname"];
     document.getElementById('title1').innerHTML = "Lista de Usuarios con Cohort Name : "+cohortName;
 }
 
 let setTableUsersByCohort = () => {
-    const cohortName = QueryString["cohortname"];
+    
     let divUsersCohort = document.getElementById("divUsersCohort");
     if (divUsersCohort){
         let filas = "";
 
-        let usuariosCohort = usuarios.filter((element) => {
-            return element.signupCohort === cohortName;
+        let usuariosCohort = usuarios.filter((usuario) => {
+            return usuario.signupCohort === cohortName;
         });
 
         usuariosCohort.forEach((user, index) => {
@@ -63,7 +58,7 @@ let setTableUsersByCohort = () => {
     }
 }
 
-const QueryString = getRequests();
+const cohortName = getCohortName();
 let usuarios = [];
 setTitulo();
 getUserList();
