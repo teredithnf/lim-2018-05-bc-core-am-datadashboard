@@ -49,25 +49,17 @@ getListCohorts = () => {
         cohorts.send();
       }
 
-      const addCohorts = (event) => {
-        const listCohort =JSON.parse(event.target.responseText);
-        for(let i=0;i<listCohort.length;i++)
-     {
-            let li = document.createElement('li');
-            li.className = 'cohortClass';
-            li.innerText = listCohort[i].id;
-            listCohorts.appendChild(li);
-     }  
-        
-        }
+const addCohorts = (event) => {
+    const listCohorts = JSON.parse(event.target.responseText);
+    setTableCohorts(listCohorts);
+}
 
         
-
-
-    /*let divCohorts = document.getElementById("divCohorts");
+let setTableCohorts = (listCohorts) => {
+    let divCohorts = document.getElementById("divCohorts");
     if (divCohorts){
         let filas = "";
-        cohorts.forEach((cohort, index) => {
+        listCohorts.forEach((cohort, index) => {
             filas = filas + "<tr onClick='showUsersByCohorts(\""+cohort.id+"\")' ><th scope='row'>"+index+"</th><td>"+cohort.id+"</td><td>"+cohort.usersCount+"</td></tr>";
         });
 
@@ -87,10 +79,8 @@ getListCohorts = () => {
     
         divCohorts.innerHTML = tablaCohorts;
     }
-
 }
 
 const showUsersByCohorts = (cohortName) => {
     window.open('/src/usersCohort.html?cohortName='+cohortName,'_self');
 }
-*/
