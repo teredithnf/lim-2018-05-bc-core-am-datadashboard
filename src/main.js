@@ -7,9 +7,9 @@ const btnStudents = document.getElementById('btnStudent');
 
 let cohorts = [];
 
-btnStudents.addEventListener ('click', (e) => {
-e.preventDefault();
-getListStudent();
+btnStudents.addEventListener('click', (e) => {
+    e.preventDefault();
+    getListStudent();
 });
 
 getListStudent = () => {
@@ -18,49 +18,65 @@ getListStudent = () => {
     students.onload = addStudents;
     students.onerror = error;
     students.send();
-  }
-   
-const addStudents = (event) => {
-   const usuarios =JSON.parse(event.target.responseText);
-   for(let i=0;i<usuarios.length;i++)
-     {
-            let li = document.createElement('li');
-            li.className = 'articleClass';
-            li.innerText = usuarios[i].name;
-            listStudents.appendChild(li);
-     }  
 }
-const error = () =>  console.log ('Se ha presentado un error');
 
-/*Funcion para llamar cohorts */
+const addStudents = (event) => {
+    const usuarios = JSON.parse(event.target.responseText);
+    console.log(usuarios)
+    for (let i = 0; i < usuarios.length; i++) {
+        let li = document.createElement('li');
+        li.className = 'articleClass';
+        li.innerText = usuarios[i].name;
+        listStudents.appendChild(li);
+    }
+}
+const error = () => console.log('Se ha presentado un error');
+
 const btnCohorts = document.getElementById('btnCohorts');
 const listCohorts = document.getElementById('listCohorts');
 
-btnCohorts.addEventListener ('click', (e) => {
+btnCohorts.addEventListener('click', (e) => {
     e.preventDefault();
-    getListCohorts();
- });
+    createCohortsTable();
+});
+
 getListCohorts = () => {
-        let cohorts = new XMLHttpRequest();
-        cohorts.open('GET', '../data/cohorts.json');
-        cohorts.onload = addCohorts; 
-        cohorts.onerror = error;
-        cohorts.send();
-      }
+    let cohorts = new XMLHttpRequest();
+    cohorts.open('GET', '../data/cohorts.json');
+    cohorts.onload = addCohorts;
+    cohorts.onerror = error;
+    cohorts.send();
+}
+
 const addCohorts = () => {
-   cohorts =JSON.parse(event.target.responseText);
-   console.log(cohorts);
-   createCohortsTable();
-     /*for(let i=0;i<usuarios.length;i++)
+    cohorts = JSON.parse(event.target.responseText);
+    console.log(cohorts);
+}
+
+
+getListProgress = () => {
+    let progress = new XMLHttpRequest;
+    progress.open('GET', '../data/cohorts/lim-2018-03-pre-core-pw/progress.json')
+    progress.onload = addProgress;
+    progress.onerror = error;
+    progress.send();
+}
+
+const addProgress = () => {
+    progress = JSON.parse(event.target.responseText)
+}
+
+   /*createCohortsTable();
+     for(let i=0;i<usuarios.length;i++)
       {
              let li = document.createElement('li');
              li.className = 'articleClass';
              li.innerText = usuarios[i].name;
              listStudents.appendChild(li);
-      }   */ 
+      }  
 }
 
-const createCohortsTable = () => {
+  const createCohortsTable = () => {
 
     let divCohorts = document.getElementById("divCohorts");
     if (divCohorts){
@@ -90,4 +106,4 @@ const createCohortsTable = () => {
 
 const showUsersByCohorts = (cohortName) => {
     window.open('/src/usersCohort.html?cohortName='+cohortName,'_self');
-}
+}*/
