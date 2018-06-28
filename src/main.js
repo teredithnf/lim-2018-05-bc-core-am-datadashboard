@@ -1,43 +1,5 @@
 
 //mostrar datos (manipulacion del XHR)
-
-/*.............. Funcion para llamar lista de Usuarios..................*/
-const listStudents = document.getElementById('list');
-const btnStudents = document.getElementById('btnStudent');
-
-btnStudents.addEventListener ('click', (e) => {
-e.preventDefault();
-getListStudent();
-});
-
-getListStudent = () => {
-    let students = new XMLHttpRequest();
-    students.open('GET', '../data/cohorts/lim-2018-03-pre-core-pw/users.json');
-    students.onload = addStudents;
-    students.onerror = error;
-    students.send();
-  }
-/*
-getJSON(cohortsUrl, (cohorts) => {
-  getJSON(usersUrl, (users) => {
-    getJSON(progressUrl, (progress) => {
-      console.log(users, cohorts, progress)
-    })
-  })
-})
- */  
-const addStudents = (event) => {
-   const usuarios =JSON.parse(event.target.responseText);
-   for(let i=0;i<usuarios.length;i++)
-     {
-            let li = document.createElement('li');
-            li.className = 'articleClass';
-            li.innerText = usuarios[i].name;
-            listStudents.appendChild(li);
-     }  
-}
-const error = () =>  console.log ('Se ha presentado un error');
-
 /*..........................Funcion para llamar cohorts...................*/
 const btnCohorts = document.getElementById('btnCohorts');
 const listCohorts = document.getElementById('listCohorts');
@@ -60,12 +22,54 @@ const addCohorts = (event) => {
     listCohort.forEach(cohor =>{
         let li = document.createElement('li');
         li.innerHTML = cohor.id;
-        li.value = cohor.id;
+        li.id = cohor.id;
         listCohorts.appendChild(li);
+        li.addEventListener('click',(event)=>{ 
+          //console.log(event.target);
+          if (event.target.id === 'lim-2018-03-pre-core-pw') {
+            getListStudent(event.target.id);
+          }
+          else alert('No hay Usuarios!  :( ');
+        });
     })
   }
+/*.............. Funcion para llamar lista de Usuarios..................*/
+const listStudents = document.getElementById('list');
+
+ const getListStudent = (nameCohort) => {
+    let students = new XMLHttpRequest();
+    students.open('GET', '../data/cohorts/lim-2018-03-pre-core-pw/users.json');
+    students.onload = (event)=>{   
+      const usuarios =JSON.parse(event.target.responseText);
+      let arrayNames=[];
+      usuarios.forEach(user => { 
+        if (nameCohort === user.signupCohort){
+             arrayNames.push(students);
+               let li = document.createElement('li');
+               li.className = 'studentClass';
+               li.innerText = user.name;
+               listStudents.appendChild(li);
+          }
+            } );};
+    students.onerror = error;
+    students.send();
+  }
+  
+
+const error = () =>  console.log ('Se ha presentado un error');
+
+
 /*..................Funcion para filtrar los usuarios por cohorts............*/
 
 const getStudentsByCohort = (nameCohort) => {
 let arrayByCohort
 }
+/*
+getJSON(cohortsUrl, (cohorts) => {
+  getJSON(usersUrl, (users) => {
+    getJSON(progressUrl, (progress) => {
+      console.log(users, cohorts, progress)
+    })
+  })
+}) 
+ */
