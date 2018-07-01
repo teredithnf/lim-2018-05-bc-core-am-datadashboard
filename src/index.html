@@ -7,8 +7,8 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
    crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 </head>
 <body>
   <header>
@@ -19,40 +19,22 @@
     </form>
     <nav><i class="fas fa-power-off"></i>Usuario</nav>
   </header>
-  <section>
+  <div class="menuPadding">
     <main class="contenedor-menu">
       <a href="#" class="btn-menu">MENU <i class="icono fas fa-bars"></i></a>
       <!-- Menu para dispositivo mobil-->
       <ul class="menu">
-        <!--<li><a href="#"> <i class="fas fa-home"></i> MENU</a></li>
-        <li><a href="#"><i class="icono izquierda fas fa-map-marker-alt"></i> SEDE<i class="icono derecha fas fa-chevron-down"></i></a>
-          <ul>
-            <li><a href="#">Peru-Lima</a></li>
-            <li><a href="#">Santiago de chile</a></li>
-            <li><a href="#">Guadarajara</a></li>
-            <li><a href="#">Mexico</a></li>
-            <li><a href="#">Sao Paulo</a></li>
-          </ul>
-        </li>-->
-        <li id="btnCohorts"> 
-          <a href="#"><i class="icono izquierda far fa-star"></i>COHORTS<i class="icono derecha fas fa-chevron-down"></i>
-          </a>
-          <!-- ul id="listCohorts">    </ul -->
         </li>
-        <li id="btnStudent">
-          <a href="#"><i class="icono izquierda far fa-address-book"></i> ESTUDIANTES<i class="icono derecha fas fa-chevron-down"></i>
-          </a>
+        <li id="btnCohorts"> <a href="#"><i class="icono izquierda far fa-star"></i>COHORTS<i class="icono derecha fas fa-chevron-down"></i></a>
+          <ul id="listCohorts">    </ul>
         </li>
+        <li id="btnStudent"> <a href="#"><i class="icono izquierda far fa-address-book"></i> ESTUDIANTES<i class="icono derecha fas fa-chevron-down"></i></a></li>
       </ul>
     </main>
-    <aside class="contenedor-aside">
-        <div id="divCohorts"></div>
-    </aside>
-  </section>
+  </div>
+  <div id="divCohorts"></div>
 
-  <!-- ul id="list"></ul-->
   
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="data.js"></script>
   <script src="main.js"></script>
 </body>
