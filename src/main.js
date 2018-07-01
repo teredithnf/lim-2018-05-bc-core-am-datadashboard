@@ -99,7 +99,7 @@ let setTableUsersByCohort = (usuarios,cohortName) => {
         }
        
         usuariosCohort.forEach((user, index) => {
-            filas = filas + "<tr onClick='showUsersByCohorts(\""+user.id+"\")' ><th scope='row'>"+index+"</th><td>"+user.id+"</td><td>"+user.name+"</td><td>"+user.role+"</td></tr>";
+            filas = filas + "<tr onClick='showUsersByCohorts(\""+user.id+"\")' ><th scope='row'>"+(index+1)+"</th><td>"+user.id+"</td><td>"+user.name+"</td></tr>";
         });
 
         let tablaUsers = 
@@ -109,7 +109,6 @@ let setTableUsersByCohort = (usuarios,cohortName) => {
         "        <th scope='col'>#</th>"+
         "        <th scope='col'>User Id</th>"+
         "        <th scope='col'>User Name</th>"+
-        "        <th scope='col'>User Role</th>"+
         "    </tr>"+
         "</thead>"+
         "<tbody>"+
