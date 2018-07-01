@@ -29,9 +29,6 @@ const addCohorts = (event) => {
 const listDataProgress = document.getElementById('showProgress');
 const btnDataProgress = document.getElementById('btnProgress');
 
-btnDataProgress.addEventListener ('click', (e) => {
-  e.preventDefault();
-  });
 
 getDataProgress = () => {
     let dataProgress = new XMLHttpRequest();
@@ -51,17 +48,6 @@ const addProgress = (event) => {
          listDataProgress.appendChild(li);
   }  
 }
-
-/*
-generation.addEventListener('change',function(e){
-  if (generation.value === 'lim-2018-03-pre-core-pw') {
-      showStudents.innerHTML= '';
-      addStudents();
-  }else{
-      alert('Sin datos para mostrar');
-  }
-
-});*/
         
 let setTableCohorts = (listCohorts) => {
     let divCohorts = document.getElementById("divCohorts");
