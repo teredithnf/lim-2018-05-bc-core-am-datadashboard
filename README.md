@@ -559,3 +559,96 @@ del repo de tu cohort, tus _coaches_ te compartirán un _link_ a un repo. La otr
 * [Fetch API en MDN](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
 * [json.org](https://json.org/json-es.html)
 * [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en)
+----------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------
+------------------------------------------ DAHSBOARD------------------------------------------------------
+----------------------------------------------------------------------------------------------------------
+Para realizar el siguiente proyecto, se realizo un cuestionario para realizar una entrevista al usuario final para
+tener los requerimientos, luego realizar los bocetos (de baja y alta fidelidad), y finalmente creación de la web.
+
+1.- Quiénes son los principales usuarios de producto?
+    Son los Training Manager, para este proyecto nos asignaron a : Alejandra
+
+2.- Cuáles son los objetivos de estos usuarios en relación con el producto?
+    - Tener una tendencia general, por turnos, de un cohort el progreso de completitud de ejercicios autocorregidos,lecturas,Quizes.
+    - Realizar comparaciones de tendencia entre turnos de un mismo cohort.
+    - Tener una web funcional y adaptable (poder utilizarlo desde cualquier equipo).
+    - Tener un diseño mantenga la marca de Laboratoria.
+
+3.- Cuáles son los datos más relevantes que quieren ver en la interfaz y por qué. Cómo los descubriste?
+    Los datos mas relevantes para la training manager es visualizar es una estadistica general del progreso de completitud de ejercicios
+    autorregidos por cohort y realizar comparaciones entre el turno de la mañana y la tarde de un cohort.
+    ***
+
+4.- Cuándo revisan normalmente estos datos los usuarios.
+    Lo revisa cada fin de proyecto.Sin embargo comento que mas adelante lo revisaran antes de cada proyecto pero todavíano se tiene una fecha establecida.
+
+5.- Cómo crees que el producto les está resolviendo sus problemas.
+    ***
+6.- Cómo fue tu proceso de diseño.
+     Para el proceso de diseño primero se realizo un cuestionario para entender los requerimientos del usuario, luego procedimos a realizar un boceto de baja fidelidad, nos acercamos hacia la TM para que nos de un feedback de nuestro boceto y creamos un boceto de baja fidelidad didactico para tener una idea mas clara.Con el ultimo boceto de baja fidelidad comenzamos a construir el prototipo de alta fidelidad.
+
+A continuación presentamos los materiales utilizados para realizar la página:
+
+1.- CUESTIONARIO
+
+      1.- Que información quisieras visualizar el Dashboard?
+      2.- Podrias brindarnos una jerarquia entre todas las evaluciones?
+      3.- Hasta el momento como verificas el desempeño de las estuadiantes de       Laboratoria?
+      4.- Que proceso consideras que te genera perdida de tiempo?
+      5.- Te gustaría ver graficos?
+      6.- Es necesario poder exportar los datos o estadisticas en un excel?
+
+2.- BOCETO DE BAJA CALIDAD
+
+- Interfaz de Login de Usuario
+
+![Login Usuario](1-LoginUsuario.png)
+
+- Se realiza  click boton de sedes, para  filtrar las sedes
+
+![Boton de Sedes](2-btnSedes.png)
+
+![Filtrar Sedes](3-FiltrarSede.png)
+
+- Se realiza click en boton Cohort, para filtrar los cohorts
+
+![Boton de Cohort](4-btnCohort.png)
+
+![Filtrar Cohort](5-FiltrarCohort.png)
+
+- Se muestra lista de estudiantes con el porcentaje de completitud de Ejercicios , Quizes y Lecturas
+
+![Tabla de Usuario y Gráficas](6-TablaUsuarioGraficaGenera.png)
+
+- Se realiza click en buscar para filtrar el nombre de un estudiante y permite seleccionar a uno.
+
+![Boton Buscar Usuario](7-btnBuscarUsuario.png)
+
+![Seleccionar Usuario](8-SeleccionarUsuario.png)
+
+- Se visualiza el detalle de completitud de cada curso.
+
+![Detalle de Todos Los Cursos del Usuario](9-DetalleTodosCursosUsuario.png)
+
+3.-  PROTOTIPO DE ALTA CALIDAD
+
+- Login de Usuario
+
+![Login Usuario](1-LoginUsuario.PNG)
+
+- Menu Principal y Tabla de Estudiantes
+
+![Menu Principal Y tabla de Estudiantes](2-MenuPrincipalyTablaEstudiantes.PNG)
+
+- Detalle de progreso por estudiante
+
+![Detalle de Progreso Por Estudiante](3-DetallePorEstudiante.PNG)
+
+SPRINT # 1
+
+![Sprint 1](Sprint-1.jpg)
+
+SPRINT # 2
+
+![Sprint 2](Sprint-2.jng)
