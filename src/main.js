@@ -26,6 +26,42 @@ const addCohorts = (event) => {
     setTableCohorts(listCohorts);
 }
 
+const listDataProgress = document.getElementById('showProgress');
+const btnDataProgress = document.getElementById('btnProgress');
+
+btnDataProgress.addEventListener ('click', (e) => {
+  e.preventDefault();
+  });
+
+getDataProgress = () => {
+    let dataProgress = new XMLHttpRequest();
+    dataProgress.open('Get','../data/cohorts/lim-2018-03-pre-core-pw/progress.json');
+    dataProgress.onload = addDataProgress;
+    dataProgress.onerror = error;
+    dataProgress.send();
+}
+
+const addProgress = (event) => {
+  const listDataProgress = JSON.parse(event.target.responseText);
+  for(let i=0;i<listdataProgress.length;i++)
+  {
+         let li = document.createElement('li');
+         li.className = 'showProgress';
+         li.innerText = listDataProgress[i].intro.percent;
+         listDataProgress.appendChild(li);
+  }  
+}
+
+/*
+generation.addEventListener('change',function(e){
+  if (generation.value === 'lim-2018-03-pre-core-pw') {
+      showStudents.innerHTML= '';
+      addStudents();
+  }else{
+      alert('Sin datos para mostrar');
+  }
+
+});*/
         
 let setTableCohorts = (listCohorts) => {
     let divCohorts = document.getElementById("divCohorts");
