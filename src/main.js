@@ -92,7 +92,7 @@ btnCohorts.addEventListener ('click', (e) => {
 
         let filas = "";
         userWithStats.forEach((user, index) => {
-            filas = filas + "<tr onClick='showUserProgress(\""+user.id+"\")' ><th scope='row'>"+(index+1)+"</th><td>"+user.id+"</td><td>"+user.name+"</td><td>"+user.stats.percent+"</td></tr>";
+            filas = filas + "<tr onClick='showUserProgress(\""+user.id+"\")' ><th scope='row'>"+(index+1)+"</th><td>"+user.name+"</td><td>"+user.stats.percent+"</td></tr>";
         });
 
         let tablaUsers = 
@@ -100,9 +100,8 @@ btnCohorts.addEventListener ('click', (e) => {
         "<thead class='thead-dark'>"+
         "    <tr>"+
         "        <th scope='col'>#</th>"+
-        "        <th scope='col'>User Id</th>"+
         "        <th scope='col'>User Name</th>"+
-        "        <th scope='col'>Progress</th>"+
+        "        <th scope='col'>Progress %</th>"+
         "    </tr>"+
         "</thead>"+
         "<tbody>"+
