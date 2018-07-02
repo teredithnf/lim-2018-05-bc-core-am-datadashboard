@@ -603,52 +603,52 @@ A continuación presentamos los materiales utilizados para realizar la página:
 
 - Interfaz de Login de Usuario
 
-![Login Usuario](1-LoginUsuario.png)
+![Login Usuario](ImgBoceto/1-LoginUsuario.png)
 
 - Se realiza  click boton de sedes, para  filtrar las sedes
 
-![Boton de Sedes](2-btnSedes.png)
+![Boton de Sedes](ImgBoceto/2-btnSedes.png)
 
-![Filtrar Sedes](3-FiltrarSede.png)
+![Filtrar Sedes](ImgBoceto/3-FiltrarSede.png)
 
 - Se realiza click en boton Cohort, para filtrar los cohorts
 
-![Boton de Cohort](4-btnCohort.png)
+![Boton de Cohort](ImgBoceto/4-btnCohort.png)
 
-![Filtrar Cohort](5-FiltrarCohort.png)
+![Filtrar Cohort](ImgBoceto/5-FiltrarCohort.png)
 
 - Se muestra lista de estudiantes con el porcentaje de completitud de Ejercicios , Quizes y Lecturas
 
-![Tabla de Usuario y Gráficas](6-TablaUsuarioGraficaGenera.png)
+![Tabla de Usuario y Gráficas](ImgBoceto/6-TablaUsuarioGraficaGenera.png)
 
 - Se realiza click en buscar para filtrar el nombre de un estudiante y permite seleccionar a uno.
 
-![Boton Buscar Usuario](7-btnBuscarUsuario.png)
+![Boton Buscar Usuario](ImgBoceto/7-btnBuscarUsuario.png)
 
-![Seleccionar Usuario](8-SeleccionarUsuario.png)
+![Seleccionar Usuario](ImgBoceto/8-SeleccionarUsuario.png)
 
 - Se visualiza el detalle de completitud de cada curso.
 
-![Detalle de Todos Los Cursos del Usuario](9-DetalleTodosCursosUsuario.png)
+![Detalle de Todos Los Cursos del Usuario](ImgBoceto/9-DetalleTodosCursosUsuario.png)
 
 3.-  PROTOTIPO DE ALTA CALIDAD
 
 - Login de Usuario
 
-![Login Usuario](1-LoginUsuario.PNG)
+![Login Usuario](ImgAltaFidelidad/1-LoginUsuario.PNG)
 
 - Menu Principal y Tabla de Estudiantes
 
-![Menu Principal Y tabla de Estudiantes](2-MenuPrincipalyTablaEstudiantes.PNG)
+![Menu Principal Y tabla de Estudiantes](ImgAltaFidelidad/2-MenuPrincipalyTablaEstudiantes.PNG)
 
 - Detalle de progreso por estudiante
 
-![Detalle de Progreso Por Estudiante](3-DetallePorEstudiante.PNG)
+![Detalle de Progreso Por Estudiante](ImgAltaFidelidad/3-DetallePorEstudiante.PNG)
 
 SPRINT # 1
 
-![Sprint 1](Sprint-1.jpg)
+![Sprint 1](SprintPlan/Sprint-1.jpg)
 
 SPRINT # 2
 
-![Sprint 2](Sprint-2.jng)
+![Sprint 2](SprintPlan/Sprint-2.jng)
