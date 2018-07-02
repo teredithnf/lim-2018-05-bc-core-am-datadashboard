@@ -1,10 +1,6 @@
 
-//mostrar datos (manipulacion del XHR)
+const divCohorts = document.getElementById("divCohorts");
 
-/*.............. Funcion para llamar lista de Cohorts..................*/
-
-
-let cohortName;
 const btnCohorts = document.getElementById('btnCohorts');
 
 btnCohorts.addEventListener ('click', (e) => {
@@ -12,57 +8,101 @@ btnCohorts.addEventListener ('click', (e) => {
     getListCohorts();
  });
 
- /*Funcion para llamar cohorts */
-getListCohorts = () => {
-        let cohorts = new XMLHttpRequest();
-        cohorts.open('GET', '../data/cohorts.json');
-        cohorts.onload = addCohorts; 
-        cohorts.onerror = error;
-        cohorts.send();
-      }
+ getListCohorts = () => {
+     let cohortsPromise = fetch('../data/cohorts.json').then((response)=>{
+        if(response.status === 200){
+            return response.json();
+        }else{
+            throw new Error('ocurriò un error!');
+        }
+     });
 
-const addCohorts = (event) => {
-    const listCohorts = JSON.parse(event.target.responseText);
-    setTableCohorts(listCohorts);
-}
-
-const listDataProgress = document.getElementById('showProgress');
-const btnDataProgress = document.getElementById('btnProgress');
-
-
-getDataProgress = () => {
-    let dataProgress = new XMLHttpRequest();
-    dataProgress.open('Get','../data/cohorts/lim-2018-03-pre-core-pw/progress.json');
-    dataProgress.onload = addDataProgress;
-    dataProgress.onerror = error;
-    dataProgress.send();
-}
-
-const addProgress = (event) => {
-  const listDataProgress = JSON.parse(event.target.responseText);
-  for(let i=0;i<listdataProgress.length;i++)
-  {
-         let li = document.createElement('li');
-         li.className = 'showProgress';
-         li.innerText = listDataProgress[i].intro.percent;
-         listDataProgress.appendChild(li);
-  }  
-}
+     cohortsPromise.then((jsonCohorts) => {
+        //console.log(jsonCohorts);
+        if (divCohorts){
+            let filas = "";
+            jsonCohorts.forEach((cohort, index) => {
+                filas = filas + "<tr onClick='showUsersByCohorts(\""+cohort.id+"\")' ><th scope='row'>"+(index+1)+"</th><td>"+cohort.id+"</td></tr>";
+            });
+    
+            let tablaCohorts = 
+            "<table class='table'>"+
+            "<thead class='thead-dark'>"+
+            "    <tr>"+
+            "        <th scope='col'>#</th>"+
+            "        <th scope='col'>Cohort Name</th>"+
+            "    </tr>"+
+            "</thead>"+
+            "<tbody>"+
+            filas
+            "</tbody>"+
+            "</table>";
         
-let setTableCohorts = (listCohorts) => {
-    let divCohorts = document.getElementById("divCohorts");
-    if (divCohorts){
+            divCohorts.innerHTML = tablaCohorts;
+        }
+     });
+ }
+
+ showUsersByCohorts = (cohortName) => {
+
+    let cohortsPromise = fetch('../data/cohorts.json').then((response)=>{
+        if(response.status === 200){
+            return response.json();
+        }else{
+            throw new Error('ocurriò un error!');
+        }
+     });
+
+    let usersPromise = fetch('../data/cohorts/lim-2018-03-pre-core-pw/users.json').then((response)=>{
+        if(response.status === 200){
+            return response.json();
+        }else{
+            throw new Error('ocurriò un error!');
+        }
+     });
+
+     let progressPromise = fetch('../data/cohorts/lim-2018-03-pre-core-pw/progress.json').then((response)=>{
+        if(response.status === 200){
+            return response.json();
+        }else{
+            throw new Error('ocurriò un error!');
+        }
+     });
+
+     let cohorts, users, progress = [];
+     cohortsPromise.then((jsonCohorts) => {
+        cohorts = jsonCohorts;
+        return usersPromise;
+     }).then((jsonUsers)=>{
+        users = jsonUsers;
+        return progressPromise;
+     }).then((jsonProgress)=>{
+        progress = jsonProgress;
+
+        let userCohorts = users.filter((usuario) => {
+            return usuario.signupCohort === cohortName;
+        });   
+
+        const cohort = cohorts.find(item => item.id === cohortName);
+        const courses = Object.keys(cohort.coursesIndex);
+
+        let userWithStats = computeUsersStats(userCohorts, progress, courses);
+        
+        console.log(userWithStats);
+
         let filas = "";
-        listCohorts.forEach((cohort, index) => {
-            filas = filas + "<tr onClick='showUsersByCohorts(\""+cohort.id+"\")' ><th scope='row'>"+(index+1)+"</th><td>"+cohort.id+"</td></tr>";
+        userWithStats.forEach((user, index) => {
+            filas = filas + "<tr onClick='showUserProgress(\""+user.id+"\")' ><th scope='row'>"+(index+1)+"</th><td>"+user.id+"</td><td>"+user.name+"</td><td>"+user.stats.percent+"</td></tr>";
         });
 
-        let tablaCohorts = 
+        let tablaUsers = 
         "<table class='table'>"+
         "<thead class='thead-dark'>"+
         "    <tr>"+
         "        <th scope='col'>#</th>"+
-        "        <th scope='col'>Cohort Name</th>"+
+        "        <th scope='col'>User Id</th>"+
+        "        <th scope='col'>User Name</th>"+
+        "        <th scope='col'>Progress</th>"+
         "    </tr>"+
         "</thead>"+
         "<tbody>"+
@@ -70,58 +110,22 @@ let setTableCohorts = (listCohorts) => {
         "</tbody>"+
         "</table>";
     
-        divCohorts.innerHTML = tablaCohorts;
-    }
-}
-
-const error = () =>  console.log ('Se ha presentado un error');
-
-const btnStudents = document.getElementById('btnStudent');
+        divCohorts.innerHTML = tablaUsers;
 
 
-btnStudents.addEventListener ('click', (e) => {
-e.preventDefault();
-getUserList();
-});
+     });
 
-getUserList = () => {
-    let students = new XMLHttpRequest();
-    students.open('GET', '../data/cohorts/lim-2018-03-pre-core-pw/users.json');
-    students.onload = userSucces;
-    students.onerror = error;
-    students.send();
-  }
-   
-const userSucces= (event) => {
-   const usuarios =JSON.parse(event.target.responseText);
-  setTableUsersByCohort(usuarios, cohortName);  
-}
 
-const showUsersByCohorts = (cohortName) => {
-    //window.open('/src/usersCohort.html?cohortName='+cohortName,'_self');
-    //alert("si funciona "+cohortName);
-    cohortName = cohortName;
-    getUserList();
-    // llamar usuarios
-    // llamar a set table userByCohort
+     /*
+     usersPromise.then((jsonUsers) => {
 
-}
-
-let setTableUsersByCohort = (usuarios,cohortName) => {
-    
-    let divUsersCohorts = document.getElementById("divCohorts");
-    if (divUsersCohorts){
+        let usuariosCohort = jsonUsers.filter((usuario) => {
+            return usuario.signupCohort === cohortName;
+        });   
+        
         let filas = "";
-
-        let usuariosCohort = usuarios;
-        if (cohortName !== undefined){
-            usuariosCohort = usuarios.filter((usuario) => {
-                return usuario.signupCohort === cohortName;
-            });    
-        }
-       
         usuariosCohort.forEach((user, index) => {
-            filas = filas + "<tr onClick='showUsersByCohorts(\""+user.id+"\")' ><th scope='row'>"+(index+1)+"</th><td>"+user.id+"</td><td>"+user.name+"</td></tr>";
+            filas = filas + "<tr onClick='showUserProgress(\""+user.id+"\")' ><th scope='row'>"+(index+1)+"</th><td>"+user.id+"</td><td>"+user.name+"</td></tr>";
         });
 
         let tablaUsers = 
@@ -138,15 +142,8 @@ let setTableUsersByCohort = (usuarios,cohortName) => {
         "</tbody>"+
         "</table>";
     
-        divUsersCohorts.innerHTML = tablaUsers;
-    }
-}
+        divCohorts.innerHTML = tablaUsers;
+     }); */
 
-/*const userId = (user.id) =>{
-    let
-
-}*/
-/*const cohortName = getCohortName();
-let usuarios = [];
-getUserList();*/
+ }
 
