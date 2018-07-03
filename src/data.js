@@ -26,7 +26,7 @@ window.computeUsersStats = (users, progress, courses) => {
     }
 */
     //recorrer el array de users y a cada uno agregarle el atributo stats
-    let userWithStats= users.map(function(user){ 
+    let userWithStats = users.map((user) =>{ 
         user.stats = {};
 
         //obtener el progreso del usuario desde el array progress
@@ -44,6 +44,8 @@ window.computeUsersStats = (users, progress, courses) => {
 
             user.stats.percent = sumaPercent/courses.length;
 
+            user.stats.exercises = {};
+            
             //actualizar exercises, reads y quizzes
 /*
             sumaPercent = courses.reduce((suma, course) => {
