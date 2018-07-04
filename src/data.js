@@ -134,12 +134,16 @@ window.sortUsers = (users, orderBy, orderDirection ) => {
 }
 
 window.filterUsers = (users, search) => {
+    console.log(users); 
+    console.log(search);
     let usersFilter = users;
     if(search !== null){
         usersFilter = users.filter((user)=>{
             return user.name.toUpperCase().indexOf(search.toUpperCase()) > -1;
+            
         });
     }
+    console.log(usersFilter);
     return usersFilter;
 }
 
@@ -154,3 +158,4 @@ window.processCohortData = (options) => {
     userWithStats = filterUsers(userWithStats, options.search);
     return userWithStats;
 }
+

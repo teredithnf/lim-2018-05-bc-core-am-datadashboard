@@ -2,149 +2,234 @@ const divCohorts = document.getElementById("divCohorts");
 
 const btnCohorts = document.getElementById('btnCohorts');
 
-btnCohorts.addEventListener ('click', (e) => {
+btnCohorts.addEventListener('click', (e) => {
     e.preventDefault();
     getListCohorts();
- });
+});
 
- getListCohorts = () => {
-     let cohortsPromise = fetch('../data/cohorts.json').then((response)=>{
-        if(response.status === 200){
+getListCohorts = () => {
+    let cohortsPromise = fetch('../data/cohorts.json').then((response) => {
+        if (response.status === 200) {
             return response.json();
-        }else{
+        } else {
             throw new Error('ocurriò un error!');
         }
-     });
+    });
 
-     cohortsPromise.then((jsonCohorts) => {
+    cohortsPromise.then((jsonCohorts) => {
         //console.log(jsonCohorts);
-        if (divCohorts){
+        if (divCohorts) {
             let filas = "";
             jsonCohorts.forEach((cohort, index) => {
-                filas = filas + "<tr onClick='showUsersByCohorts(\""+cohort.id+"\")' ><th scope='row'>"+(index+1)+"</th><td>"+cohort.id+"</td></tr>";
+                filas = filas + "<tr onClick='showUsersByCohorts(\"" + cohort.id + "\")' ><th scope='row'>" + (index + 1) + "</th><td>" + cohort.id + "</td></tr>";
             });
-    
-            let tablaCohorts = 
-            "<table class='table'>"+
-            "<thead class='thead-dark'>"+
-            "    <tr>"+
-            "        <th scope='col'>#</th>"+
-            "        <th scope='col'>Cohort Name</th>"+
-            "    </tr>"+
-            "</thead>"+
-            "<tbody>"+
-            filas
-            "</tbody>"+
-            "</table>";
-        
+
+            let tablaCohorts =
+                "<table class='table'>" +
+                "<thead class='thead-dark'>" +
+                "    <tr>" +
+                "        <th scope='col'>#</th>" +
+                "        <th scope='col'>Cohort Name</th>" +
+                "    </tr>" +
+                "</thead>" +
+                "<tbody>" +
+                filas
+            "</tbody>" +
+                "</table>";
+
             divCohorts.innerHTML = tablaCohorts;
         }
-     });
- }
+    });
+}
 
- showUsersByCohorts = (cohortName) => {
+showUsersByCohorts = (cohortName) => {
 
-    let cohortsPromise = fetch('../data/cohorts.json').then((response)=>{
-        if(response.status === 200){
+    let cohortsPromise = fetch('../data/cohorts.json').then((response) => {
+        if (response.status === 200) {
             return response.json();
-        }else{
+        } else {
             throw new Error('ocurriò un error!');
         }
-     });
+    });
 
-    let usersPromise = fetch('../data/cohorts/lim-2018-03-pre-core-pw/users.json').then((response)=>{
-        if(response.status === 200){
+    let usersPromise = fetch('../data/cohorts/lim-2018-03-pre-core-pw/users.json').then((response) => {
+        if (response.status === 200) {
             return response.json();
-        }else{
+        } else {
             throw new Error('ocurriò un error!');
         }
-     });
+    });
 
-     let progressPromise = fetch('../data/cohorts/lim-2018-03-pre-core-pw/progress.json').then((response)=>{
-        if(response.status === 200){
+    let progressPromise = fetch('../data/cohorts/lim-2018-03-pre-core-pw/progress.json').then((response) => {
+        if (response.status === 200) {
             return response.json();
-        }else{
+        } else {
             throw new Error('ocurriò un error!');
         }
-     });
+    });
 
-     let cohorts, users, progress = [];
-     cohortsPromise.then((jsonCohorts) => {
+    let cohorts, users, progress = [];
+
+    cohortsPromise.then((jsonCohorts) => {
         cohorts = jsonCohorts;
         return usersPromise;
-     }).then((jsonUsers)=>{
+    }).then((jsonUsers) => {
         users = jsonUsers;
         return progressPromise;
-     }).then((jsonProgress)=>{
+    }).then((jsonProgress) => {
         progress = jsonProgress;
+
 
         let userCohorts = users.filter((usuario) => {
             return usuario.signupCohort === cohortName;
-        });   
+        });
 
         const cohort = cohorts.find(item => item.id === cohortName);
         const courses = Object.keys(cohort.coursesIndex);
 
         let userWithStats = computeUsersStats(userCohorts, progress, courses);
-        
-        console.log(userWithStats);
+
+        // console.log(userWithStats);
+        // filterUsers(userWithStats, "heydy");
+
 
         let filas = "";
+
+
         userWithStats.forEach((user, index) => {
-            filas = filas + "<tr onClick='showUserProgress(\""+user.id+"\")' ><th scope='row'>"+(index+1)+"</th><td>"+user.name+"</td><td>"+user.stats.percent+"</td><td>"+user.stats.exercises.percent+"</td><td>"+user.stats.quizzes.percent+"</td><td>"+user.stats.quizzes.scoreAvg+"</td><td>"+user.stats.reads.percent+"</td></tr>";
+            filas = filas + "<tr onClick='showUserProgress(\"" + user.id + "\")' ><th scope='row'>" + (index + 1) + "</th><td>" + user.name + "</td><td>" + user.stats.percent + "</td><td>" + user.stats.exercises.percent + "</td><td>" + user.stats.quizzes.percent + "</td><td>" + user.stats.quizzes.scoreAvg + "</td><td>" + user.stats.reads.percent + "</td></tr>";
         });
 
-        let tablaUsers = 
-        "<table class='table'>"+
-        "<thead class='thead-dark'>"+
-        "    <tr>"+
-        "        <th scope='col'>#</th>"+
-        "        <th scope='col'>User Name</th>"+
-        "        <th scope='col'>Progress %</th>"+
-        "        <th scope='col'>Exercises %</th>"+
-        "        <th scope='col'>Quizzes %</th>"+
-        "        <th scope='col'>P.Quizzes %</th>"+
-        "        <th scope='col'>Reads %</th>"+
-        "    </tr>"+
-        "</thead>"+
-        "<tbody>"+
-        filas
-        "</tbody>"+
-        "</table>";
-    
+        let tablaUsers =
+            "<table class='table'>" +
+            "<thead class='thead-dark'>" +
+            "    <tr>" +
+            "        <th scope='col'>#</th>" +
+            "        <th scope='col'>User Name</th>" +
+            "        <th scope='col'>Progress %</th>" +
+            "        <th scope='col'>Exercises %</th>" +
+            "        <th scope='col'>Quizzes %</th>" +
+            "        <th scope='col'>P.Quizzes %</th>" +
+            "        <th scope='col'>Reads %</th>" +
+            "    </tr>" +
+            "</thead>" +
+            "<tbody>" +
+            filas
+        "</tbody>" +
+            "</table>";
+
         divCohorts.innerHTML = tablaUsers;
 
 
-     });
+    });
 
 
-     /*
-     usersPromise.then((jsonUsers) => {
+}
 
-        let usuariosCohort = jsonUsers.filter((usuario) => {
-            return usuario.signupCohort === cohortName;
-        });   
-        
+
+let txtSearch = document.getElementById('txtSearch')
+const btnSearch1 = document.getElementById('btnSearch')
+
+
+getFunction = () =>{
+
+    console.log("hola get data");
+
+    let cohortsPromise = fetch('../data/cohorts.json').then((response) => {
+        if (response.status === 200) {
+            return response.json();
+        } else {
+            throw new Error('ocurriò un error!');
+        }
+    });
+
+    let usersPromise = fetch('../data/cohorts/lim-2018-03-pre-core-pw/users.json').then((response) => {
+        if (response.status === 200) {
+            return response.json();
+        } else {
+            throw new Error('ocurriò un error!');
+        }
+    });
+
+    let progressPromise = fetch('../data/cohorts/lim-2018-03-pre-core-pw/progress.json').then((response) => {
+        if (response.status === 200) {
+            return response.json();
+        } else {
+            throw new Error('ocurriò un error!');
+        }
+    });
+
+    let cohorts, users, progress = [];
+
+    console.log("hola mundo !!")
+
+    cohortsPromise.then((jsonCohorts) => {
+        cohorts = jsonCohorts;
+        return usersPromise;
+    }).then((jsonUsers) => {
+        users = jsonUsers;
+        return progressPromise;
+    }).then((jsonProgress) => {
+        progress = jsonProgress;
+
+    cohortName = "lim-2018-03-pre-core-pw" ;
+    let userCohorts = users.filter((usuario) => {
+        return usuario.signupCohort === cohortName ;
+    });
+
+        const cohort = cohorts.find(item => item.id === cohortName);
+        const courses = Object.keys(cohort.coursesIndex);
+
+        let userWithStats = computeUsersStats(userCohorts, progress, courses);
+
+        console.log(userWithStats);
+        let arrayFilter = filterUsers(userWithStats, txtSearch.value);
+
+
         let filas = "";
-        usuariosCohort.forEach((user, index) => {
-            filas = filas + "<tr onClick='showUserProgress(\""+user.id+"\")' ><th scope='row'>"+(index+1)+"</th><td>"+user.id+"</td><td>"+user.name+"</td></tr>";
+
+        arrayFilter.forEach((user, index) => {
+            filas = filas + "<tr onClick='showUserProgress(\"" + user.id + "\")' ><th scope='row'>" + (index + 1) + "</th><td>" + user.name + "</td><td>" + user.stats.percent + "</td><td>" + user.stats.exercises.percent + "</td><td>" + user.stats.quizzes.percent + "</td><td>" + user.stats.quizzes.scoreAvg + "</td><td>" + user.stats.reads.percent + "</td></tr>";
         });
 
-        let tablaUsers = 
-        "<table class='table'>"+
-        "<thead class='thead-dark'>"+
-        "    <tr>"+
-        "        <th scope='col'>#</th>"+
-        "        <th scope='col'>User Id</th>"+
-        "        <th scope='col'>User Name</th>"+
-        "    </tr>"+
-        "</thead>"+
-        "<tbody>"+
-        filas
-        "</tbody>"+
-        "</table>";
-    
-        divCohorts.innerHTML = tablaUsers;
-     }); */
+        let tablaUsers =
+            "<table class='table'>" +
+            "<thead class='thead-dark'>" +
+            "    <tr>" +
+            "        <th scope='col'>#</th>" +
+            "        <th scope='col'>User Name</th>" +
+            "        <th scope='col'>Progress %</th>" +
+            "        <th scope='col'>Exercises %</th>" +
+            "        <th scope='col'>Quizzes %</th>" +
+            "        <th scope='col'>P.Quizzes %</th>" +
+            "        <th scope='col'>Reads %</th>" +
+            "    </tr>" +
+            "</thead>" +
+            "<tbody>" +
+            filas
+        "</tbody>" +
+            "</table>";
 
- }
+        divCohorts.innerHTML = tablaUsers;
+
+    });
+
+    console.log("bye get data");
+
+}
+
+
+
+
+// btnSearch1.addEventListener('clic', getFunction)
+
+
+
+
+btnSearch1.addEventListener('click', e => {
+    //search  = txtSearch.value;
+    //divCohorts.innerHTML=userfil
+    alert('hola mundo');
+    getFunction()
+    // filterUsers('data','liz');
+})
