@@ -1,4 +1,3 @@
-
 const divCohorts = document.getElementById("divCohorts");
 
 const btnCohorts = document.getElementById('btnCohorts');
@@ -92,7 +91,7 @@ btnCohorts.addEventListener ('click', (e) => {
 
         let filas = "";
         userWithStats.forEach((user, index) => {
-            filas = filas + "<tr onClick='showUserProgress(\""+user.id+"\")' ><th scope='row'>"+(index+1)+"</th><td>"+user.name+"</td><td>"+user.stats.percent+"</td><td>"+user.stats.exercises.percent+"</td><td>"+user.stats.quizzes.percent+"</td><td>"+user.stats.reads.percent+"</td></tr>";
+            filas = filas + "<tr onClick='showUserProgress(\""+user.id+"\")' ><th scope='row'>"+(index+1)+"</th><td>"+user.name+"</td><td>"+user.stats.percent+"</td><td>"+user.stats.exercises.percent+"</td><td>"+user.stats.quizzes.percent+"</td><td>"+user.stats.quizzes.scoreAvg+"</td><td>"+user.stats.reads.percent+"</td></tr>";
         });
 
         let tablaUsers = 
@@ -104,6 +103,7 @@ btnCohorts.addEventListener ('click', (e) => {
         "        <th scope='col'>Progress %</th>"+
         "        <th scope='col'>Exercises %</th>"+
         "        <th scope='col'>Quizzes %</th>"+
+        "        <th scope='col'>P.Quizzes %</th>"+
         "        <th scope='col'>Reads %</th>"+
         "    </tr>"+
         "</thead>"+
@@ -148,4 +148,3 @@ btnCohorts.addEventListener ('click', (e) => {
      }); */
 
  }
-

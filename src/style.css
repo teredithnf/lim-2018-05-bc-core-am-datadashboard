@@ -2,7 +2,14 @@
 body { background-color: #fff;}
 header { border: 1px solid #CCC; height: 120px;background: #ffe521;}
 .centrado {margin-top: 20px;}
+<<<<<<< HEAD
 / *Menu Vertical*/
+=======
+/*Btn de menu para dispositivo mobil */
+.btn-menu { display: none; padding: 20px;background-color: #0d2c44;color: #fff;}
+.btn-menu .icono { float: right;}
+/* Menu Vertical*/
+>>>>>>> c8a7a3623f2c88520c9ae31d9e13e4248c379684
 .contenedor-menu {   width: 20%; min-width: 150px; margin: 10px; display: inline-block;}
 .contenedor-menu .menu{ width: 100%;}
 .contenedor-menu ul{ list-style: none;}
@@ -15,4 +22,10 @@ header { border: 1px solid #CCC; height: 120px;background: #ffe521;}
 /*.contenedor-menu .menu ul { display:none; } ocultar submenu*/
 .contenedor-menu .menu ul li a {  background: #FF009E; color: #e9e9e9;}
 #divCohorts{float: right; margin-top:130px; margin-right:450px;width: 50%;}
+<<<<<<< HEAD
 .txtSearch{size: 50%;}
+=======
+.txtSearch{size: 50%;}
+
+
+>>>>>>> c8a7a3623f2c88520c9ae31d9e13e4248c379684
