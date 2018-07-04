@@ -33,29 +33,20 @@ window.computeUsersStats = (users, progress, courses) => {
         //variables para completed
         let completedExercices = 0, completedReads = 0, completedQuizzes = 0;
 
-        let scoreSum = 0;
+        let sumCoursePercent = 0, scoreSum = 0;
 
         //obtener el progreso del usuario desde el array progress
         let userProgress = progress[user.id];
 
         if(userProgress){
 
-            // actualizar el objeto stats con los datos del progreso
-            const sumaPercent = courses.reduce((suma, course) => {
-                let userProgressCourses = userProgress[course];
-                if(userProgressCourses){
-                    return suma + userProgressCourses.percent;
-                }
-            },0);
-
-            user.stats.percent = sumaPercent/courses.length;
-
-            //actualizar exercises, reads y quizzes
             courses.map((course) => {
 
                 if(!userProgress.hasOwnProperty(course)){
                     return;
                 }
+
+                sumCoursePercent += userProgress[course].percent;
 
                 if(userProgress[course].hasOwnProperty('units')){
                     const units = Object.keys(userProgress[course].units);
@@ -99,6 +90,8 @@ window.computeUsersStats = (users, progress, courses) => {
 
             });
 
+            user.stats.percent = sumCoursePercent / courses.length;
+
             user.stats.exercises.total = totalExercices;
             user.stats.reads.total = totalReads;
             user.stats.quizzes.total = totalQuizzes;
@@ -107,9 +100,9 @@ window.computeUsersStats = (users, progress, courses) => {
             user.stats.reads.completed = completedReads;
             user.stats.quizzes.completed = completedQuizzes;
 
-            user.stats.exercises.percent = Math.round((completedExercices/totalExercices)*100) ;
-            user.stats.reads.percent = Math.round((completedReads/totalReads)*100) ;
-            user.stats.quizzes.percent = Math.round((completedQuizzes/totalQuizzes)*100);
+            user.stats.exercises.percent = totalExercices > 0 ? Math.round((completedExercices/totalExercices)*100) : 0;
+            user.stats.reads.percent = totalReads > 0 ? Math.round((completedReads/totalReads)*100) : 0 ;
+            user.stats.quizzes.percent = totalQuizzes > 0 ?Math.round((completedQuizzes/totalQuizzes)*100) : 0;
             
             user.stats.quizzes.scoreSum = scoreSum;
             user.stats.quizzes.scoreAvg = Math.round(scoreSum/completedQuizzes);
@@ -123,13 +116,41 @@ window.computeUsersStats = (users, progress, courses) => {
 }
 
 window.sortUsers = (users, orderBy, orderDirection ) => {
+    let usersSort = [];
+    if(orderBy === 'NOMBRE'){
+        usersSort = users.sort((user1, user2) => {
+            let order = 1;
+            if(user1.name > user2.name){
+                order = 1;
+            }else{
+                order = -1;
+            }
 
+            return orderDirection === 'ASC' ? order : (order * -1); 
+        });
+    }
+    
+    return usersSort;
 }
 
 window.filterUsers = (users, search) => {
-
+    let usersFilter = users;
+    if(search !== null){
+        usersFilter = users.filter((user)=>{
+            return user.name.toUpperCase().indexOf(search.toUpperCase()) > -1;
+        });
+    }
+    return usersFilter;
 }
 
 window.processCohortData = (options) => {
 
+    const users = options.cohortData.users;
+    const progress = options.cohortData.progress;
+    const courses = Object.keys(options.cohort.coursesIndex);
+
+    let userWithStats = computeUsersStats(users, progress, courses);
+    userWithStats = sortUsers(userWithStats, options.orderBy, options.orderDirection);
+    userWithStats = filterUsers(userWithStats, options.search);
+    return userWithStats;
 }
