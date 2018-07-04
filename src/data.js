@@ -123,13 +123,41 @@ window.computeUsersStats = (users, progress, courses) => {
 }
 
 window.sortUsers = (users, orderBy, orderDirection ) => {
+    let usersSort = [];
+    if(orderBy === 'NOMBRE'){
+        usersSort = users.sort((user1, user2) => {
+            let order = 1;
+            if(user1.name > user2.name){
+                order = 1;
+            }else{
+                order = -1;
+            }
 
+            return orderDirection === 'ASC' ? order : (order * -1); 
+        });
+    }
+    
+    return usersSort;
 }
 
 window.filterUsers = (users, search) => {
-
+    let usersFilter = users;
+    if(search !== null){
+        usersFilter = users.filter((user)=>{
+            return user.name.toUpperCase().indexOf(search.toUpperCase()) > -1;
+        });
+    }
+    return usersFilter;
 }
 
 window.processCohortData = (options) => {
 
+    const users = options.cohortData.users;
+    const progress = options.cohortData.progress;
+    const courses = Object.keys(options.cohort.coursesIndex);
+
+    let userWithStats = computeUsersStats(users, progress, courses);
+    userWithStats = sortUsers(userWithStats, options.orderBy, options.orderDirection);
+    userWithStats = filterUsers(userWithStats, options.search);
+    return userWithStats;
 }
