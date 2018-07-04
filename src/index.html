@@ -9,28 +9,45 @@
    crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/">
 </head>
 <body>
   <header>
     <img class="centrado" src="../src/img/Laboratoria_RGB_logo-01.png" height="80px">
     <form>
-      <input type="search" id="txtSearch" placeholder="buscar..." />
-      <!--<button type="submit"><i class="fas fa-search"></i></button>-->
+        <div class="menuPadding">
+            <main class="contenedor-menu">
+              <a href="#" class="btn-menu">MENU <i class="icono fas fa-bars"></i></a>
+              <!-- Menu para dispositivo mobil-->
+              <ul class="menu">
+                <li id="btnCohorts"> <a href="#"><i class="icono izquierda far fa-star"></i>COHORTS</a>
+                  <ul id="listCohorts">    </ul>
+                </li>
+              </ul>
+            </main>
+          </div>
+      <div class="topnav">
+        <select class="custom-select custom-select-sm">
+          <option selected>Open this select menu</option>
+          <option value="1">Nombre</option>
+          <option value="2">Ejercicios</option>
+          <option value="3">Quizzes</option>
+          <option value="3">Reads</option>
+        </select>
+        <select class="custom-select custom-select-sm">
+          <option selected>Open this select menu</option>
+          <option value="1">Ascendente</option>
+          <option value="2">Descendente</option>
+          <option value="3">Three</option>
+        </select>
+        <input id="btnSearch" type="button" value="Search">
+        <input type="text" placeholder="Search..">
+      </div>
+      
     </form>
-    <nav><i class="fas fa-power-off"></i>Usuario</nav>
+    
   </header>
-  <div class="menuPadding">
-    <main class="contenedor-menu">
-      <a href="#" class="btn-menu">MENU <i class="icono fas fa-bars"></i></a>
-      <!-- Menu para dispositivo mobil-->
-      <ul class="menu">
-        <li id="btnCohorts"> <a href="#"><i class="icono izquierda far fa-star"></i>COHORTS<i class="icono derecha fas fa-chevron-down"></i></a>
-          <ul id="listCohorts">    </ul>
-        </li>
-        <li id="btnStudent"> <a href="#"><i class="icono izquierda far fa-address-book"></i> ESTUDIANTES<i class="icono derecha fas fa-chevron-down"></i></a></li>
-      </ul>
-    </main>
-  </div>
+  
   <div id="divCohorts"></div>
 
   

@@ -40,17 +40,6 @@ window.computeUsersStats = (users, progress, courses) => {
 
         if(userProgress){
 
-            // actualizar el objeto stats con los datos del progreso
-            // const sumaPercent = courses.reduce((suma, course) => {
-            //     let userProgressCourses = userProgress[course];
-            //     if(userProgressCourses){
-            //         return suma + userProgressCourses.percent;
-            //     }
-            // },0);
-
-            // user.stats.percent = sumaPercent/courses.length;
-
-            //actualizar exercises, reads y quizzes
             courses.map((course) => {
 
                 if(!userProgress.hasOwnProperty(course)){
