@@ -116,35 +116,14 @@ btnCohorts.addEventListener ('click', (e) => {
 
 
      });
+ let textSearch = document.getElementById('textSearch');
+const btnSearch = document.getElementById('btnSearch');
 
-
-     /*
-     usersPromise.then((jsonUsers) => {
-
-        let usuariosCohort = jsonUsers.filter((usuario) => {
-            return usuario.signupCohort === cohortName;
-        });   
-        
-        let filas = "";
-        usuariosCohort.forEach((user, index) => {
-            filas = filas + "<tr onClick='showUserProgress(\""+user.id+"\")' ><th scope='row'>"+(index+1)+"</th><td>"+user.id+"</td><td>"+user.name+"</td></tr>";
-        });
-
-        let tablaUsers = 
-        "<table class='table'>"+
-        "<thead class='thead-dark'>"+
-        "    <tr>"+
-        "        <th scope='col'>#</th>"+
-        "        <th scope='col'>User Id</th>"+
-        "        <th scope='col'>User Name</th>"+
-        "    </tr>"+
-        "</thead>"+
-        "<tbody>"+
-        filas
-        "</tbody>"+
-        "</table>";
-    
-        divCohorts.innerHTML = tablaUsers;
-     }); */
-
+btnSearch.addEventListener('click', (e)=>{
+alert('Hola  '+ textSearch.value);
+});
  }
+
+
+
+
