@@ -1,4 +1,3 @@
-
 const divCohorts = document.getElementById("divCohorts");
 
 const btnCohorts = document.getElementById('btnCohorts');
@@ -43,7 +42,7 @@ btnCohorts.addEventListener ('click', (e) => {
      });
  }
 
-showUsersByCohorts = (cohortName) => {
+ showUsersByCohorts = (cohortName) => {
 
     let cohortsPromise = fetch('../data/cohorts.json').then((response)=>{
         if(response.status === 200){
@@ -101,11 +100,20 @@ showUsersByCohorts = (cohortName) => {
                             
         let userWithStats =  processCohortData(options);
     
+        });   
+
+        const cohort = cohorts.find(item => item.id === cohortName);
+        const courses = Object.keys(cohort.coursesIndex);
+
+        let userWithStats = computeUsersStats(userCohorts, progress, courses);
+        
+        console.log(userWithStats);
+
         let filas = "";
         userWithStats.forEach((user, index) => {
-            filas = filas + "<tr onClick='showUserProgress(\""+user.id+"\")' ><th scope='row'>"+(index+1)+"</th><td>"+user.name+"</td><td>"+user.stats.percent+"</td><td>"+user.stats.exercises.percent+"</td><td>"+user.stats.quizzes.percent+"</td><td>"+user.stats.reads.percent+"</td></tr>";
+            filas = filas + "<tr onClick='showUserProgress(\""+user.id+"\")' ><th scope='row'>"+(index+1)+"</th><td>"+user.name+"</td><td>"+user.stats.percent+"</td><td>"+user.stats.exercises.percent+"</td><td>"+user.stats.quizzes.percent+"</td><td>"+user.stats.quizzes.scoreAvg+"</td><td>"+user.stats.reads.percent+"</td></tr>";
         });
-    
+
         let tablaUsers = 
         "<table class='table'>"+
         "<thead class='thead-dark'>"+
@@ -115,6 +123,7 @@ showUsersByCohorts = (cohortName) => {
         "        <th scope='col'>Progress %</th>"+
         "        <th scope='col'>Exercises %</th>"+
         "        <th scope='col'>Quizzes %</th>"+
+        "        <th scope='col'>P.Quizzes %</th>"+
         "        <th scope='col'>Reads %</th>"+
         "    </tr>"+
         "</thead>"+
@@ -123,7 +132,39 @@ showUsersByCohorts = (cohortName) => {
         "</tbody>"+
         "</table>";
     
-        divCohorts.innerHTML = tablaUsers;            
+        divCohorts.innerHTML = tablaUsers;
 
-    });
-};
+
+     });
+
+
+     /*
+     usersPromise.then((jsonUsers) => {
+
+        let usuariosCohort = jsonUsers.filter((usuario) => {
+            return usuario.signupCohort === cohortName;
+        });   
+        
+        let filas = "";
+        usuariosCohort.forEach((user, index) => {
+            filas = filas + "<tr onClick='showUserProgress(\""+user.id+"\")' ><th scope='row'>"+(index+1)+"</th><td>"+user.id+"</td><td>"+user.name+"</td></tr>";
+        });
+
+        let tablaUsers = 
+        "<table class='table'>"+
+        "<thead class='thead-dark'>"+
+        "    <tr>"+
+        "        <th scope='col'>#</th>"+
+        "        <th scope='col'>User Id</th>"+
+        "        <th scope='col'>User Name</th>"+
+        "    </tr>"+
+        "</thead>"+
+        "<tbody>"+
+        filas
+        "</tbody>"+
+        "</table>";
+    
+        divCohorts.innerHTML = tablaUsers;
+     }); */
+
+ }
