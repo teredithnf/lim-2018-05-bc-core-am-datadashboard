@@ -14,24 +14,14 @@
 <body>
   <header>
     <img class="centrado" src="../src/img/Laboratoria_RGB_logo-01.png" height="80px">
-    <form>
-        <div class="menuPadding">
-            <main class="contenedor-menu">
-              <ul class="menu">
-                <li id="btnCohorts"> <a href="#"><i class="icono izquierda far fa-star"></i>COHORTS</a>
-                  <ul id="listCohorts">    </ul>
-                </li>
-              </ul>
-            </main>
-          </div>
-      <div class="topnav">
-        <select class="custom-select custom-select-sm">
+    <div class="topnav">
+        <select id="selector1" class="custom-select custom-select-sm">
           <option selected>Open this select menu</option>
           <option value="1">One</option>
           <option value="2">Two</option>
           <option value="3">Three</option>
         </select>
-        <select class="custom-select custom-select-sm">
+        <select id="selector2" class="custom-select custom-select-sm">
           <option selected>Open this select menu</option>
           <option value="1">One</option>
           <option value="2">Two</option>
@@ -39,8 +29,16 @@
         </select>
         <input id="btnSearch" type="button" value="Search">
         <input id="textSearch" type="text" placeholder="Search..">
-      </div>
-      
+    </div>
+    <form>
+        <div class="menuPadding">
+            <main class="contenedor-menu">
+              <ul class="menu">
+                <li id="btnCohorts"> <a href="#"><i class="icono izquierda far fa-star"></i>COHORTS</a>
+                </li>
+              </ul>
+            </main>
+          </div>   
     </form>
     
   </header>

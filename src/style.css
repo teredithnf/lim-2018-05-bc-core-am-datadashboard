@@ -11,8 +11,8 @@ header { border: 1px solid #CCC; height: 120px;background: #ffe521;}
 .contenedor-menu li a:hover {  background: #ffe521;  color:#000;}
 .contenedor-menu .menu .icono { font-size: 12px; line-height: 18px;}
 .contenedor-menu .menu .icono.izquierda {  float: left; margin-right: 5px;}
-.contenedor-menu .menu .icono.derecha {  float: right; margin-left: 5px; }  
-/*.contenedor-menu .menu ul { display:none; } ocultar submenu*/
-.contenedor-menu .menu ul li a {  background: #FF009E; color: #e9e9e9;}
-#divCohorts{float: right; margin-top:130px; margin-right:450px;width: 50%;}
+#divCohorts{ float: right; margin-top:150px; margin-right:450px;width: 50%;}
 .txtSearch{size: 50%;}
+.topnav {border: solid 1px #000;float: right;}
+#selector1 ,#selector2 {border: solid 1px #000; width: 25%; }
+
