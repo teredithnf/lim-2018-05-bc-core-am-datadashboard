@@ -572,7 +572,8 @@ tener los requerimientos, luego realizar los bocetos (de baja y alta fidelidad),
 
 **2.- Cuáles son los objetivos de estos usuarios en relación con el producto?**
 
-    - Tener una tendencia general, por turnos, de un cohort el progreso de completitud de ejercicios autocorregidos,lecturas,Quizes.
+    - Tener una tendencia general, por turnos, de un cohort el progreso de 
+      completitud de ejercicios autocorregidos,lecturas,Quizes.
 
     - Realizar comparaciones de tendencia entre turnos de un mismo cohort.
 
@@ -582,17 +583,23 @@ tener los requerimientos, luego realizar los bocetos (de baja y alta fidelidad),
 
 **3.- Cuáles son los datos más relevantes que quieren ver en la interfaz y por qué. Cómo los descubriste?**
 
-    Los datos mas relevantes para la training manager es visualizar es una estadistica general del progreso de completitud de ejercicios autorregidos por cohort y realizar comparaciones entre el turno de la mañana y la tarde de un cohort.
+    Los datos mas relevantes para la training manager es visualizar es una estadistica general del 
+    progreso de completitud de ejercicios autorregidos por cohort y realizar comparaciones entre 
+    el turno de la mañana y la tarde de un cohort.
     
 **4.- Cuándo revisan normalmente estos datos los usuarios.**
 
-    Lo revisa cada fin de proyecto.Sin embargo comento que mas adelante lo revisaran antes de cada proyecto pero todavíano se tiene una fecha establecida.
+    Lo revisa cada fin de proyecto.Sin embargo comento que mas adelante lo revisaran antes de cada 
+    proyecto pero todavíano se tiene una fecha establecida.
 
 **5.- Cómo crees que el producto les está resolviendo sus problemas.**
     
 **6.- Cómo fue tu proceso de diseño.**
 
-     Para el proceso de diseño primero se realizo un cuestionario para entender los requerimientos del usuario, luego procedimos a realizar un boceto de baja fidelidad, nos acercamos hacia la TM para que nos de un feedback de nuestro boceto y creamos un boceto de baja fidelidad didactico para tener una idea mas clara.Con el ultimo boceto de baja fidelidad comenzamos a construir el prototipo de alta fidelidad.
+     Para el proceso de diseño primero se realizo un cuestionario para entender los requerimientos del usuario,
+      luego procedimos a realizar un boceto de baja fidelidad, nos acercamos hacia la TM para que nos de un 
+      feedback de nuestro boceto y creamos un boceto de baja fidelidad didactico para tener una idea mas clara.
+      Con el ultimo boceto de baja fidelidad comenzamos a construir el prototipo de alta fidelidad.
 
 A continuación presentamos los materiales utilizados para realizar la página:
 
