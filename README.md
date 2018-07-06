@@ -563,8 +563,8 @@ del repo de tu cohort, tus _coaches_ te compartirán un _link_ a un repo. La otr
 ----------------------------------------------------------------------------------------------------------
  ## DAHSBOARD
 
-Para realizar el siguiente proyecto, se realizo un cuestionario para realizar una entrevista al usuario final para
-tener los requerimientos, luego realizar los bocetos (de baja y alta fidelidad), y finalmente creación de la web.
+Para el proyecto, se realizo una entrevista con el usuario final, asi
+tener los requerimientos necesarios para el usuario, luego realizar los bocetos (de baja y alta fidelidad), y finalmente creación de la web.
 
 **1.- Quiénes son los principales usuarios de producto?**
 
