@@ -4,7 +4,7 @@
 window.computeUsersStats = (users, progress, courses) => {
 
     //recorrer el array de users y a cada uno agregarle el atributo stats
-    let userWithStats= users.map(function(user){ 
+    let userWithStats= users.map((user) => { 
         
         user.stats = {
             percent: 0,
@@ -39,16 +39,6 @@ window.computeUsersStats = (users, progress, courses) => {
         let userProgress = progress[user.id];
 
         if(userProgress){
-
-            // actualizar el objeto stats con los datos del progreso
-            // const sumaPercent = courses.reduce((suma, course) => {
-            //     let userProgressCourses = userProgress[course];
-            //     if(userProgressCourses){
-            //         return suma + userProgressCourses.percent;
-            //     }
-            // },0);
-
-            // user.stats.percent = sumaPercent/courses.length;
 
             //actualizar exercises, reads y quizzes
             courses.map((course) => {
@@ -127,11 +117,22 @@ window.computeUsersStats = (users, progress, courses) => {
 }
 
 window.sortUsers = (users, orderBy, orderDirection ) => {
-    let usersSort = [];
+    let usersSort = users;
     if(orderBy === 'NOMBRE'){
         usersSort = users.sort((user1, user2) => {
             let order = 1;
             if(user1.name > user2.name){
+                order = 1;
+            }else{
+                order = -1;
+            }
+
+            return orderDirection === 'ASC' ? order : (order * -1); 
+        });
+    }else if(orderBy === 'TOTAL'){
+        usersSort = users.sort((user1, user2) => {
+            let order = 1;
+            if(user1.stats.percent > user2.stats.percent){
                 order = 1;
             }else{
                 order = -1;

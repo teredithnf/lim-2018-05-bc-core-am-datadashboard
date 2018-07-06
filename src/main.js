@@ -82,6 +82,7 @@ showUsersByCohorts = (cohortName) => {
         let userCohorts = users.filter((usuario) => {
             return usuario.signupCohort === cohortName;
         }); 
+        
         let cohort = cohorts.find(item => item.id === cohortName);
         let search = null; // por defecto es null, luego filtrará el nombre de los usuarios 
         let orderBy = 'NOMBRE'; // por defecto es NOMBRE, podría ser TOTAL, EXERCISES, QUIZZES, QUIZZES_AVG, READS
@@ -97,7 +98,7 @@ showUsersByCohorts = (cohortName) => {
             orderDirection: orderDirection,
             search: search
         }
-    
+                            
         let userWithStats =  processCohortData(options);
     
         let filas = "";
