@@ -100,15 +100,6 @@ btnCohorts.addEventListener ('click', (e) => {
                             
         let userWithStats =  processCohortData(options);
     
-        });   
-
-        const cohort = cohorts.find(item => item.id === cohortName);
-        const courses = Object.keys(cohort.coursesIndex);
-
-        let userWithStats = computeUsersStats(userCohorts, progress, courses);
-        
-        console.log(userWithStats);
-
         let filas = "";
         userWithStats.forEach((user, index) => {
             filas = filas + "<tr onClick='showUserProgress(\""+user.id+"\")' ><th scope='row'>"+(index+1)+"</th><td>"+user.name+"</td><td>"+user.stats.percent+"</td><td>"+user.stats.exercises.percent+"</td><td>"+user.stats.quizzes.percent+"</td><td>"+user.stats.quizzes.scoreAvg+"</td><td>"+user.stats.reads.percent+"</td></tr>";

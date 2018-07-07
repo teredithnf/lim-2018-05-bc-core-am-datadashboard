@@ -140,7 +140,40 @@ window.sortUsers = (users, orderBy, orderDirection ) => {
 
             return orderDirection === 'ASC' ? order : (order * -1); 
         });
-    }
+    
+    }else if(orderBy === 'Exercise'){
+        usersSort = users.sort((user1, user2) => {
+            let order = 1;
+            if(user1.stats.percent > user2.stats.percent){
+                order = 1;
+            }else{
+                order = -1;
+            }
+
+            return orderDirection === 'ASC' ? order : (order * -1); 
+        });
+    }else if(orderBy === 'Quizzes'){
+        usersSort = users.sort((user1, user2) => {
+            let order = 1;
+            if(user1.stats.percent > user2.stats.percent){
+                order = 1;
+            }else{
+                order = -1;
+            }
+
+            return orderDirection === 'ASC' ? order : (order * -1); 
+        });
+    }else if(orderBy === 'Reads'){
+        usersSort = users.sort((user1, user2) => {
+            let order = 1;
+            if(user1.stats.percent > user2.stats.percent){
+                order = 1;
+            }else{
+                order = -1;
+            }
+
+            return orderDirection === 'ASC' ? order : (order * -1); 
+        });
     
     return usersSort;
 }
