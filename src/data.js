@@ -4,7 +4,7 @@
 window.computeUsersStats = (users, progress, courses) => {
 
     //recorrer el array de users y a cada uno agregarle el atributo stats
-    let userWithStats= users.map(function(user){ 
+    let userWithStats= users.map((user) => { 
         
         user.stats = {
             percent: 0,
@@ -40,6 +40,7 @@ window.computeUsersStats = (users, progress, courses) => {
 
         if(userProgress){
 
+            //actualizar exercises, reads y quizzes
             courses.map((course) => {
 
                 if(!userProgress.hasOwnProperty(course)){
@@ -105,18 +106,19 @@ window.computeUsersStats = (users, progress, courses) => {
             user.stats.quizzes.percent = totalQuizzes > 0 ?Math.round((completedQuizzes/totalQuizzes)*100) : 0;
             
             user.stats.quizzes.scoreSum = scoreSum;
-            user.stats.quizzes.scoreAvg = Math.round(scoreSum/completedQuizzes);
+            user.stats.quizzes.scoreAvg = completedQuizzes>0 ? Math.round(scoreSum/completedQuizzes) : 0;
         }
 
         return user;
      });
 
-     console.log('userWithStats: ',userWithStats);
+     //console.log('userWithStats: ',userWithStats);
     return userWithStats;
 }
 
 window.sortUsers = (users, orderBy, orderDirection ) => {
-    let usersSort = [];
+
+    let usersSort = users;
     if(orderBy === 'NOMBRE'){
         usersSort = users.sort((user1, user2) => {
             let order = 1;
@@ -128,8 +130,62 @@ window.sortUsers = (users, orderBy, orderDirection ) => {
 
             return orderDirection === 'ASC' ? order : (order * -1); 
         });
+    }else if(orderBy === 'TOTAL'){
+        usersSort = users.sort((user1, user2) => {
+            let order = 1;
+            if(user1.stats.percent > user2.stats.percent){
+                order = 1;
+            }else{
+                order = -1;
+            }
+
+            return orderDirection === 'ASC' ? order : (order * -1); 
+        });
+    }else if(orderBy === 'EXERCISES'){
+        usersSort = users.sort((user1, user2) => {
+            let order = 1;
+            if(user1.stats.exercises.percent > user2.stats.exercises.percent){
+                order = 1;
+            }else{
+                order = -1;
+            }
+
+            return orderDirection === 'ASC' ? order : (order * -1); 
+        });
+    }else if(orderBy === 'QUIZZES'){
+        usersSort = users.sort((user1, user2) => {
+            let order = 1;
+            if(user1.stats.quizzes.percent > user2.stats.quizzes.percent){
+                order = 1;
+            }else{
+                order = -1;
+            }
+
+            return orderDirection === 'ASC' ? order : (order * -1); 
+        });
+    }else if(orderBy === 'QUIZZES_AVG'){
+        usersSort = users.sort((user1, user2) => {
+            let order = 1;
+            if(user1.stats.quizzes.scoreAvg > user2.stats.quizzes.scoreAvg){
+                order = 1;
+            }else{
+                order = -1;
+            }
+
+            return orderDirection === 'ASC' ? order : (order * -1); 
+        });
+    }else if(orderBy === 'READS'){
+        usersSort = users.sort((user1, user2) => {
+            let order = 1;
+            if(user1.stats.reads.percent > user2.stats.reads.percent){
+                order = 1;
+            }else{
+                order = -1;
+            }
+
+            return orderDirection === 'ASC' ? order : (order * -1); 
+        });
     }
-    
     return usersSort;
 }
 
@@ -154,4 +210,3 @@ window.processCohortData = (options) => {
     userWithStats = filterUsers(userWithStats, options.search);
     return userWithStats;
 }
-

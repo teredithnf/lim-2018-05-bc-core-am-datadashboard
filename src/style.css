@@ -1,18 +1,85 @@
-* { margin: 0; padding: 0; -webkit-box-sizing: border-box; -moz-box-sizing: border-box;box-sizing: border-box;}
-body { background-color: #fff;}
-header { border: 1px solid #CCC; height: 120px;background: #ffe521;}
-.centrado {margin-top: 20px;}
-/*Menu Vertical*/
-.contenedor-menu {   width: 20%; min-width: 150px; margin: 10px; display: inline-block;}
-.contenedor-menu .menu{ width: 100%;}
-.contenedor-menu ul{ list-style: none;}
-.contenedor-menu .menu li a {   color: #494949; display: block; padding: 15px 20px; background: #e9e9e9;}
-/*Efecto sobre menu*/
-.contenedor-menu li a:hover {  background: #ffe521;  color:#000;}
-.contenedor-menu .menu .icono { font-size: 12px; line-height: 18px;}
-.contenedor-menu .menu .icono.izquierda {  float: left; margin-right: 5px;}
-#divCohorts{ float: right; margin-top:150px; margin-right:450px;width: 50%;}
-.txtSearch{size: 50%;}
-.topnav {border: solid 1px #000;float: right;}
-#selector1 ,#selector2 {border: solid 1px #000; width: 25%; }
 
+header { 
+    border: 1px solid #CCC; 
+    height: 80px;
+    background: #ffe521;
+}
+
+body {
+    /* background: #F1F3FA; */
+    background: #f7f7f7;
+}
+
+.dashboard {
+    margin: 10px 0;
+}
+
+.dashboard-sidebar {
+    padding: 20px 0 10px 0;
+    background: #fff;
+}
+
+.dashboard-usertitle {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+.dashboard-usertitle-name {
+    color: #5a7391;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 7px;
+}
+
+.dashboard-usertitle-job {
+    text-transform: uppercase;
+    color: #5b9bd1;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.dashboard-usermenu {
+    margin-top: 30px;
+}
+
+.dashboard-usermenu ul li {
+    border-bottom: 1px solid #f0f4f7;
+}
+
+.dashboard-usermenu ul li:last-child {
+    border-bottom: none;
+}
+
+.dashboard-usermenu ul li a {
+    color: #93a3b5;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.dashboard-usermenu ul li a i {
+    margin-right: 8px;
+    font-size: 14px;
+}
+
+.dashboard-usermenu ul li a:hover {
+    background-color: #fafcfd;
+    color: #5b9bd1;
+}
+
+.dashboard-usermenu ul li.active {
+    border-bottom: none;
+}
+
+.dashboard-usermenu ul li.active a {
+    color: #5b9bd1;
+    background-color: #f6f9fb;
+    border-left: 2px solid #5b9bd1;
+    margin-left: -2px;
+}
+
+.dashboard-content {
+    padding: 20px;
+    background: #fff;
+    min-height: 460px;
+}

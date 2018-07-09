@@ -4,47 +4,69 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Data Dashboard</title>
+  <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
-   crossorigin="anonymous">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/">
 </head>
 <body>
   <header>
     <img class="centrado" src="../src/img/Laboratoria_RGB_logo-01.png" height="80px">
-    <div class="topnav">
-        <select id="selector1" class="custom-select custom-select-sm">
-          <option selected>Open this select menu</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
-        </select>
-        <select id="selector2" class="custom-select custom-select-sm">
-          <option selected>Open this select menu</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
-        </select>
-        <input id="btnSearch" type="button" value="Search">
-        <input id="textSearch" type="text" placeholder="Search..">
-    </div>
-    <form>
-        <div class="menuPadding">
-            <main class="contenedor-menu">
-              <ul class="menu">
-                <li id="btnCohorts"> <a href="#"><i class="icono izquierda far fa-star"></i>COHORTS</a>
-                </li>
-              </ul>
-            </main>
-          </div>   
-    </form>
-    
   </header>
   
-  <div id="divCohorts"></div>
+<!--   <div class="menuPadding">
+    <main class="contenedor-menu">
+      <a href="#" class="btn-menu">MENU <i class="icono fas fa-bars"></i></a>
+      <ul class="menu">
+        <li id="btnCohorts"> <a href="#"><i class="icono izquierda far fa-star"></i>COHORTS</a>
+          <ul id="listCohorts">    </ul>
+        </li>
+      </ul>
+    </main>
+    <div id="divCohorts"></div>
+  </div>         -->
 
+  <div class="container">
+    <div class="row dashboard">
+      <div class="col-md-3">
+        <!-- AQUI VA NUESTRO SIDEBAR -->
+          <div class="dashboard-sidebar">
+
+            <div class="dashboard-usertitle">
+              <div class="dashboard-usertitle-name">
+                Alejandra
+              </div>
+              <div class="dashboard-usertitle-job">
+                Training Manager
+              </div>
+            </div>
+
+            <div class="dashboard-usermenu">
+              <ul class="nav">
+                <li class="active" id="btnCohorts">
+                  <a href="#">
+                    <i class="glyphicon glyphicon-home">
+                    </i>
+                    Cohorts
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i class="glyphicon glyphicon-user">
+                    </i>
+                    Users
+                  </a>
+                </li>                
+              </ul>
+            </div>
+          </div>
+      </div>
+      <div class="col-md-9">
+        <!-- AQUI VA NUESTRO CONTENIDO DINAMICO -->
+        <div class="dashboard-content">
+          <div id="divCohorts"></div>
+        </div>        
+      </div>
+    </div>
+  </div>
   
   <script src="data.js"></script>
   <script src="main.js"></script>
