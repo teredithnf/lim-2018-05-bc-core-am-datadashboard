@@ -93,6 +93,26 @@ showUsersByCohorts = (cohortName) => {
         // filterUsers(userWithStats, "heydy");
 
 
+        }); 
+        
+        let cohort = cohorts.find(item => item.id === cohortName);
+        let search = null; // por defecto es null, luego filtrará el nombre de los usuarios 
+        let orderBy = 'NOMBRE'; // por defecto es NOMBRE, podría ser TOTAL, EXERCISES, QUIZZES, QUIZZES_AVG, READS
+        let orderDirection = 'ASC'; //por defecto es ASC, y podria ser DESC  
+    
+        let options = {
+            cohort: cohort,
+            cohortData: {
+                users: userCohorts,
+                progress: progress
+            },
+            orderBy: orderBy,
+            orderDirection: orderDirection,
+            search: search
+        }
+                            
+        let userWithStats =  processCohortData(options);
+    
         let filas = "";
 
 

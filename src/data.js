@@ -4,7 +4,7 @@
 window.computeUsersStats = (users, progress, courses) => {
 
     //recorrer el array de users y a cada uno agregarle el atributo stats
-    let userWithStats= users.map(function(user){ 
+    let userWithStats= users.map((user) => { 
         
         user.stats = {
             percent: 0,
@@ -40,6 +40,7 @@ window.computeUsersStats = (users, progress, courses) => {
 
         if(userProgress){
 
+            //actualizar exercises, reads y quizzes
             courses.map((course) => {
 
                 if(!userProgress.hasOwnProperty(course)){
@@ -116,7 +117,7 @@ window.computeUsersStats = (users, progress, courses) => {
 }
 
 window.sortUsers = (users, orderBy, orderDirection ) => {
-    let usersSort = [];
+    let usersSort = users;
     if(orderBy === 'NOMBRE'){
         usersSort = users.sort((user1, user2) => {
             let order = 1;
@@ -128,7 +129,51 @@ window.sortUsers = (users, orderBy, orderDirection ) => {
 
             return orderDirection === 'ASC' ? order : (order * -1); 
         });
-    }
+    }else if(orderBy === 'TOTAL'){
+        usersSort = users.sort((user1, user2) => {
+            let order = 1;
+            if(user1.stats.percent > user2.stats.percent){
+                order = 1;
+            }else{
+                order = -1;
+            }
+
+            return orderDirection === 'ASC' ? order : (order * -1); 
+        });
+    
+    }else if(orderBy === 'Exercise'){
+        usersSort = users.sort((user1, user2) => {
+            let order = 1;
+            if(user1.stats.percent > user2.stats.percent){
+                order = 1;
+            }else{
+                order = -1;
+            }
+
+            return orderDirection === 'ASC' ? order : (order * -1); 
+        });
+    }else if(orderBy === 'Quizzes'){
+        usersSort = users.sort((user1, user2) => {
+            let order = 1;
+            if(user1.stats.percent > user2.stats.percent){
+                order = 1;
+            }else{
+                order = -1;
+            }
+
+            return orderDirection === 'ASC' ? order : (order * -1); 
+        });
+    }else if(orderBy === 'Reads'){
+        usersSort = users.sort((user1, user2) => {
+            let order = 1;
+            if(user1.stats.percent > user2.stats.percent){
+                order = 1;
+            }else{
+                order = -1;
+            }
+
+            return orderDirection === 'ASC' ? order : (order * -1); 
+        });
     
     return usersSort;
 }
