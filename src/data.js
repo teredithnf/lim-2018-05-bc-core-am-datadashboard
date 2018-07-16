@@ -122,7 +122,7 @@ window.sortUsers = (users, orderBy, orderDirection ) => {
     if(orderBy === 'NOMBRE'){
         usersSort = users.sort((user1, user2) => {
             let order = 1;
-            if(user1.name > user2.name){
+            if(user1.name.toUpperCase() > user2.name.toUpperCase()){
                 order = 1;
             }else{
                 order = -1;

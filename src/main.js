@@ -82,15 +82,10 @@ btnCohorts.addEventListener ('click', (e) => {
        progress = jsonProgress;
 
        let userCohorts = users.filter((usuario) => {
-           return usuario.signupCohort === cohortName;
+           return usuario.signupCohort === cohortName && usuario.role === 'student';
        }); 
        
        let cohort = cohorts.find(item => item.id === cohortName);
-        /*        
-       let search = null; // por defecto es null, luego filtrará el nombre de los usuarios 
-       let orderBy = 'NOMBRE'; // por defecto es NOMBRE, podría ser TOTAL, EXERCISES, QUIZZES, QUIZZES_AVG, READS
-       let orderDirection = 'ASC'; //por defecto es ASC, y podria ser DESC   
-        */
    
        let options = {
            cohort: cohort,

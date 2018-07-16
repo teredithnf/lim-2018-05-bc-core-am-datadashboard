@@ -84,11 +84,11 @@ describe('data', () => {
 
     it('debería retornar arreglo de usuarios ordenado por nombre ASC', () => {
       const processed = sortUsers(userWithStats, 'NOMBRE', 'ASC');
-      assert.equal( processed[0].name, 'ALEXANDRA');
+      assert.equal( processed[0].name, 'adriana vizcarra paitán');
     });
     it('debería retornar arreglo de usuarios ordenado por nombre DESC', () => {
       const processed = sortUsers(userWithStats, 'NOMBRE', 'DESC');
-      assert.equal( processed[0].name, 'zaida');
+      assert.equal( processed[0].name, 'Zurisadai Rosas Aramburú');
     });
     it('debería retornar arreglo de usuarios ordenado por porcentaje general ASC', () => {
       const processed = sortUsers(userWithStats, 'TOTAL', 'ASC');
